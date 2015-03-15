@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>怀进鹏</title>
+    <link rel="stylesheet" href="../css/huai.css"/>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/topMessage.css"/>
+    <script src="../js/lib/jquery.min.js"></script>
+
+</head>
+
+<body onResize="setFullScreenElementsStyle()">
+    <section id="page-1" class="pages full-screen">
+        <div id="logo-box">
+            <img id="mo" src="../images/mo.png" alt=""/>
+            <img id="logo" src="../images/huai_logo.png" alt=""/>
+            <span id="jinpeng">Jinpeng</span> <span id="huai">Huai</span>
+        </div>
+        <span class="down-arrow"></span>
+    </section>
+
+    <section id="pics" class="full-screen" style="overflow: hidden">
+        <ul id="pic-nav">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div id="page-container">
+            <section id="page-2" class="pages full-screen">
+                <div class="bg"></div>
+                <div class="intro" style="top:10%;left:5%;">
+                    <header>“法国外交部长洛朗·法比尤斯与怀进鹏校长亲切交谈”</header>
+                    <time>2013/7</time>
+                </div>
+
+            </section>
+
+
+            <section id="page-3" class="pages full-screen">
+                <div class="bg"></div>
+                <div class="intro" style="bottom: 7%;left: 5%;">
+                    <time>2013/10</time>
+                    <header>“校庆嘉年华上亲自体验一把‘愤怒的小鸟’”</header>
+                </div>
+            </section>
+
+
+            <section id="page-4" class="pages full-screen">
+                <div class="bg"></div>
+                <div class="intro" style="left: 5%;top: 5%;">
+                    <header>“习近平主席见证我校与布鲁塞尔自由大学<br/>签署战略合作协议”</header>
+                    <time>2014/3</time>
+                </div>
+            </section>
+
+            <section id="page-5" class="pages full-screen">
+                <div class="bg"></div>
+                <div class="intro" style="left: 5%;bottom:20%;">
+                    <time>2014/4</time>
+                    <header>“毕业季嘉年华，毕业季筹备委员会团队，向<br/>怀校长赠送2014首款毕业戒指，怀校长表示<br/>需要支持团队的运营和持续发展，亲自购买”</header>
+                </div>
+
+                <!--todo 需要png的图实现上下指示箭头-->
+            </section>
+        </div>
+
+    </section>
+    <section id="words-header" class="banner">
+        <header>
+            <div onclick="$.scrollTo('#words-header',300);">
+                <i class="huai-logo"></i>
+                <span>Mr.Huai</span>
+            </div>
+            <div onclick="$.scrollTo('#leave-message-header',300);">
+                留言.
+            </div>
+            <section>
+                <div>
+                    <h2>怀进鹏</h2>
+                    <span>中国共产党党员，中国科学院院士，计算机软件专家。工业和信息化部副部长、党组成员。前北京航空航天大学校长。</span>
+                </div>
+            </section>
+
+        </header>
+
+    </section>
+    <div id="words">
+        <section>
+            <h2>为什么要上大学</h2>
+            <h3>——北航2011级本科新生开学典礼</h3>
+            <p>
+                也许有人认为，上大学只是一种选择，上“好大学”是一种荣誉和目标；
+                也许有人认为，在大学可以学习更多的知识和技能，以后有个让人满意的职业；
+                也许有人认为，上大学可以成为一个有修养、受人尊敬的人。
+            </p>
+        </section>
+        <section>
+            <h2>仰望星空 德才兼备 报效祖国</h2>
+            <h3>——2010届毕业生典礼</h3>
+            <p>
+                这几天，校园里布满了一种气息，空气中弥漫着一种情绪，这里充满了激情和信心，这就是青春和飞腾的冲动！
+                同学们，你们今天就要从这里起航，去放飞梦想，去拥抱未来！
+            </p>
+        </section>
+    </div>
+    <section id="leave-message-header" class="banner">
+        <header>
+            <div onclick="$.scrollTo('#words-header',300);">
+                <i class="huai-logo"></i>
+                <span>Mr.Huai</span>
+            </div>
+            <div onclick="$.scrollTo('#leave-message-header',300);">
+                留言.
+            </div>
+        </header>
+        <div class="top-arrow-wrapper" onclick="show_editor();">
+            <i class="top-arrow"></i>
+        </div>
+    </section>
+    <section id="leave-message">
+        <a  onmouseover="show_top_arrow();" id="add-message-link" data-clicked="false">
+            留言
+        </a>
+        <div name="add-message" id="add-message" style="display: none;">
+            <div contenteditable="true" id="edit-message">
+                <span class="placeholder">在这里写下想对怀校长说的话吧!不过要记得，上网不涉密哟~~</span>
+            </div>
+        </div>
+        <form class="login-form form" style="display: none;">
+            <table>
+                <tbody>
+                    <tr>
+                        <!--<td>昵称或邮件地址</td>-->
+                        <td colspan="2">
+                            <input type="text" name="username" placeholder="输入昵称/电子邮箱"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <!--<td>密码</td>-->
+                        <td colspan="2">
+                            <input type="password" name="password" placeholder="输入密码"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a href="javascript:login();" class="button">登陆</a>
+                            <a href="" class="button">注册</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </form>
+        <section>
+            <h2>旧书信</h2>
+            <time>2014/3/5</time>
+            <p>祝您事事顺意，每天都有一份好心情！<a href="#">回复</a></p>
+        </section>
+        <section>
+            <h2>酒杯斟满</h2>
+            <time>2014/3/5</time>
+            <p>
+                桃李满天下，恩情似海深，您不仅是一位合格的教师，更是一位好朋友！谢谢您所做的一切。
+            </p>
+            <article class="reply" data-id="">
+                <span class="reply-from">怀校长</span>
+                <span class="reply-to">酒杯斟满</span>
+                <article class="reply-content">谢谢，希望你好好学习，将来为北航争光添彩</article>
+            </article>
+            <article class="reply" data-id="">
+                <span class="reply-from">酒杯斟满</span>
+                <span class="reply-to">怀校长</span>
+                <article class="reply-content">我一定谨记校长的教诲，努力工作，升职加薪，出任CEO迎娶白富美走上人生巅峰，为北航争光添彩！</article>
+            </article>
+        </section>
+        <section>
+            <h2>雾散尽之后</h2>
+            <time>2014/3/2</time>
+            <p>阳光普照，园丁心坎春意暖；雨露滋润，桃李蓓蕾红。您辛苦了~</p>
+        </section>
+        <section>
+            <h2>依旧如初</h2>
+            <time>2014/3/2</time>
+            <p>祝老师桃李满天下，一切都好！</p>
+        </section>
+        <div class="load-more">
+            向下滚动或点击以加载更多
+        </div>
+    </section>
+    <footer>
+        <section onclick="$.scrollTo('#page-1',800);">
+            <i class="huai"></i>
+            <span>Mr.Huai</span>
+        </section>
+        <section onclick="$.scrollTo('#pics',600);">
+            <i class="album"></i>
+            <span>His photos</span>
+        </section>
+        <section onclick="$.scrollTo('#leave-message-header',400);">
+            <i class="say-something"></i>
+            <span>Say something to him</span>
+        </section>
+        <section>
+            <span>Copyright 2015 by <strong>Jinpeng Xu</strong> and <strong>Chunqi Wang</strong></span>
+            <span>All Rights Reserved</span>
+        </section>
+
+    </footer>
+
+    <script>
+        $(document).ready(function(){
+            setFullScreenElementsStyle();
+            setTimeout(function(){
+                mo();
+            },1000);
+            $("#pic-nav li").click(function(){
+                if(!this.classList.contains("active")) {
+                    $("#pic-nav .active").attr("class","");
+                    this.classList.add("active");
+                    var index = $("#pic-nav li").index($(this))+2;
+                    scroll_pics(index);
+                }
+            });
+            setTimeout(function(){
+                $("#words-header").show(0);
+                $("#words").show(0);
+                $("#leave-message-header").show(0);
+                $("#leave-message").show(0);
+            },2000);
+
+//            $("#page-1").on("scorllstart",function(){
+//                $.scrollTo("#pics",300);
+//            });
+            //向左滑往右走
+            $("#page-container .pages").on("swipeleft",function(){
+                var windowWidth = $(window).outerWidth();
+                var offset = parseInt($("#page-container").css("left"));
+                if(offset> (-3*windowWidth)) {
+                    var index = parseInt(-offset / windowWidth);
+                    index++;
+                    scroll_pics(index+2);
+                    setNavActive(index);
+                }
+
+            });
+            //向右滑往左走
+            $("#page-container .pages").on("swiperight",function(){
+                var windowWidth = $(window).outerWidth();
+                var offset = parseInt($("#page-container").css("left"));
+                if(offset<0){
+                    var index = parseInt(-offset/windowWidth);
+                    index--;
+                    scroll_pics(index+2);
+                    setNavActive(index);
+                }
+            });
+
+
+            window.scrollData = {};
+            var flag1 = true;
+            var flag2 = true;
+            var flag3 = true;
+            var flag4 = true;
+            var flag5 = true;
+            var flag6 = true;
+            var flag7 = true;
+            var flag8 = true;
+
+            setTimeout(function(){
+//                $('.bg').bind('mouseover',function(){
+//                    if(flag1){
+//                        flag1 = false;
+//                        $.scrollTo("#pics",800);
+//                        setTimeout(function(){
+//                            var elem = document.getElementById("page-2");
+//                            showPicInfo(elem);
+//                            removeGray(elem);
+//                        },200);
+//                    }
+//                });
+                $("#page-1 .down-arrow").bind("click",function(){
+                    $.scrollTo("#pics",800);
+                    setTimeout(function(){
+                        var elem = document.getElementById("page-2");
+                        showPicInfo(elem);
+                        removeGray(elem);
+                    },200);
+                });
+//
+                $('#page-1').bind('mousewheel',function(event,delta,deltaX,deltaY){
+                    if(flag1){
+                        if(delta<0){
+                            flag1 = false;
+                            setTimeout(function(){
+                                $.scrollTo("#pics",400);
+                                var elem = document.getElementById("page-2");
+                                showPicInfo(elem);
+                                removeGray(elem);
+                                flag1 = true;
+                            },100);
+                        }
+
+                    }
+
+                });
+//                $('.bg').bind('mousewheel',function(event,delta,deltaX,deltaY){
+//                    if(delta<0){
+//                        if(flag2){
+//                            flag2 = false;
+//                            setTimeout(function(){
+//                                $.scrollTo("#words-header",400);
+//                                flag2 = true;
+//                            },100);
+//                        }
+//                    }else{
+//                        if(flag3){
+//                            flag3 = false;
+//                            setTimeout(function(){
+//                                $.scrollTo("#page-1",400);
+//                                flag3 = true;
+//                            },100);
+//                        }
+//                    }
+//                });
+//                $('#words-header').bind('mousewheel',function(event,delta,deltaX,deltaY){
+//                if(delta<0){
+//                    if(flag4){
+//                        flag4 = false;
+//                        setTimeout(function(){
+//                            $.scrollTo("#words",400);
+//                            flag4 = true;
+//                        },100);
+//                    }
+//                }else{
+//                    if(flag5){
+//                        flag5 = false;
+//                        setTimeout(function(){
+//                            $.scrollTo("#pics",400);
+//                            flag5 = true;
+//                        },100);
+//                    }
+//                }
+//            });
+            $('#leave-message').bind('mousewheel',function(event,delta,deltaX,deltaY){
+                if(delta<0){
+                    if(flag7 && $(window).scrollTop() == ($(document.body).innerHeight()-$(window).outerHeight())){
+                        flag7 = false;
+                        setTimeout(function(){
+                            load_messages();
+                            //$.scrollTo("#words",400);
+//                            flag7 = true;
+                        },100);
+                    }
+                }
+            });
+        },500);
+
+//            $('#page-1').bind('mousewheel', function(event, delta, deltaX, deltaY) {
+//                if(delta<0){
+//                    setTimeout(function(){
+//                        $.scrollTo("#pics",800);
+//                        var elem = document.getElementById("page-2");
+//                        removeGray(elem);
+//                        showPicInfo(elem);
+//                    },200);
+//
+//                }
+//            });
+
+
+
+        });
+
+
+        function setFullScreenElementsStyle(){
+            var windowWidth = $(window).outerWidth();
+            var windowHeight = $(window).outerHeight();
+            $(".full-screen").css({
+                "width":windowWidth.toString() + "px",
+                "height":windowHeight.toString() + "px"
+            });
+            $("#page-container").css({
+                "width":(4*windowWidth).toString() + "px",
+                "height":windowHeight.toString() + "px",
+                "left":0
+            });
+            $("#words-header").css({
+                "min-height":(windowHeight*0.5).toString() + "px"
+            });
+            $("#words-header>header").css({
+                "height":(windowHeight*0.5).toString() + "px"
+            });
+            $("#leave-message-header").css({
+                "min-height":(windowHeight*0.5).toString() + "px"
+            });
+
+            var nav_width = parseInt($("#pic-nav").outerWidth());
+            $("#pic-nav").css({
+                "left": parseInt((windowWidth - nav_width)/2) + "px"
+            });
+            $(".down-arrow").css({
+                "left":parseInt((windowWidth - 30)/2) + "px"
+            })
+        }
+
+        function removeGray(elem) {
+            if(elem){
+                if(elem.classList.contains("gray")) {
+                    elem.classList.remove("gray");
+                    elem.classList.add("fade");
+                }
+            }
+        }
+        function showPicInfo(elem){
+            var e = elem.getElementsByClassName("intro")[0];
+            if(e){
+                var bg = e.parentNode.children[0];
+                $(bg).css({
+                    "background-color":"rgba(0,0,0,0.3)"
+                });
+                if(!e.classList.contains("show")) {
+                    e.classList.add("show");
+                }
+            }
+
+        }
+        function setNavActive(index){
+            $("#pic-nav li").attr("class","");
+            if(0<=index<=4){
+                document.getElementById("pic-nav").getElementsByTagName("li")[index].classList.add("active");
+            }
+        }
+        //首页的duang特效
+        function mo(){
+            var logo_box = document.getElementById("logo-box");
+            logo_box.classList.add("show");
+            document.getElementById("mo").classList.add("mo-animation");
+            logo_box.classList.add("logo-box-animation");
+            document.getElementById("logo").classList.add("logo-animation");
+
+            $("#jinpeng").attr("class","jump1");
+            $("#huai").attr("class","jump2");
+
+            setTimeout(function(){
+                $(".down-arrow").css({
+                    "opacity":"0.8"
+                });
+            },2000);
+        }
+
+        function show_editor() {
+
+            var t = document.getElementById("add-message-link").getAttribute("data-clicked");
+            if(t == "false") {
+                if(window.user){
+                    if($("#leave-message .user-name").get().length==0) {
+                        var str = '<div class="user-name"><span>'+window.user.username+'</span></div>';
+                        $(str).insertAfter("#add-message-link");
+                    }
+                    else {
+                        $("#leave-message .user-name span").html(window.user.username);
+                    }
+                    $("#leave-message-header").css({"height":"150px"});
+                    $("#add-message").fadeIn(300);
+
+                }else {
+
+                    if($("#leave-message .alert").get().length==0){
+                        var str = '<div class="alert"><span>请登陆或注册</span></div>';
+                        $(str).insertAfter("#add-message-link");
+                    }
+                    $("#leave-message-header").css({"min-height":"150px","height":"150px"});
+                    $("#leave-message .form").fadeIn(300);
+                }
+                document.getElementById("add-message-link").setAttribute("data-clicked","true");
+                $(".top-arrow").css({
+                    "opacity":"0.6",
+                    "background-image":"url(../images/down-arrow.png)"
+
+                });
+            }else{
+                $("#add-message").fadeOut(300);
+                $("#leave-message .form").fadeOut(300);
+                $("#leave-message .alert").fadeOut(300);
+                $("#leave-message-header").css({"height":window.innerHeight/2});
+                document.getElementById("add-message-link").setAttribute("data-clicked","false");
+                $(".top-arrow").css({
+                    "opacity":"0.6",
+                    "background-image":"url(../images/top-arrow.png)"
+
+                });
+            }
+
+        }
+
+        function login(){
+            var username = $("#leave-message .form input:eq(0)").val();
+            var password = $("#leave-message .form input:eq(1)").val();
+            //todo 补全ajax 这一部分回调
+            window.user = {"username":username};
+            $("#leave-message .form").fadeOut(300);
+            $("#leave-message .alert").remove();
+
+            show_editor();
+            show_editor();
+        }
+        function register(){
+            var username = $("#leave-message .form input:eq(0)").val();
+            var password = $("#leave-message .form input:eq(1)").val();
+            //todo 补全ajax 这一部分写在success回调
+            window.user = {"username":username};
+            $("#leave-message .form").fadeOut(300);
+            $("#leave-message .alert").remove();
+            show_editor();
+            show_editor();
+        }
+
+        function scroll_pics(index){
+
+            var windowWidth = $(window).outerWidth();
+
+            for(var i = 2;i<index; i++) {
+                var el = document.getElementById("page-"+i.toString());
+                $(el).css({"left":parseInt(-windowWidth)+"px"});
+            }
+            for(var j = index;j<=5;j++){
+                var el = document.getElementById("page-"+j.toString());
+                $(el).css({"left":0});
+            }
+            var elem = document.getElementById("page-"+index.toString());
+            removeGray(elem);
+            showPicInfo(elem);
+        }
+
+
+        function load_messages(callback){
+            //todo 这里写ajax交互
+            $.ajax({
+                type: "get",
+                url : "api地址",
+                dataType:'json',
+                data: null,
+                success: function(data){
+                    if(data.status==1){
+                        //todo 这里写具体操作DOM，想必不难=_=
+                        //回调函数
+                        if(typeof callback == "function") {
+                            callback();//如果有参数加参数
+                        }
+                    }else{
+                        topMessage({
+                            Type:"fail",
+                            Message:"这里写错误信息"
+                        });
+                    }
+
+                }
+            });
+
+        }
+        function show_top_arrow(){
+            var t = document.getElementById("add-message-link").getAttribute("data-clicked");
+            if(t=="false"){
+                $(".top-arrow").css({
+                    "opacity":"0.6"
+                });
+            }else{
+                $(".top-arrow").css({
+                    "opacity":"0.6",
+                    "background-image":"url(../images/down-arrow.png)"
+
+                });
+            }
+
+
+        }
+
+        window.user = null;
+        window.MessageTemplate = [
+            '{@each messages as message}',
+                '<section data-id="${message.id}" data-message-from="${message.from}">',
+                    '<h2>${message.from}</h2>',
+                    '<time>${message.time}</time>',
+                    '<p>',
+                        '${message.content}',
+                    '</p>',
+                    '{@each message.replay as reply }',
+                        '<article class="reply" data-id="${reply.id}" data-reply-from="${reply.from}" data-reply-to="${reply.tp} data.target={reply.target}">',
+                            '<span class="reply-from">${reply.from}</span>',
+                            '<span class="reply-to">${reply.to}</span>',
+                            '<article class="reply-content">',
+                                '${reply.content}',
+                            '</article>',
+                        '</article>',
+                    '{@/each}',
+                '</section>',
+            '{@/each}'
+        ].join("");
+        //滚动滑轮触发scrollFunc方法
+
+
+
+    </script>
+    <script src="../js/lib/jquery.scrollTo.js"></script>
+    <script src="../js/lib/jquery.mobile.min.js"></script>
+    <script src="../js/lib/mousewheel.min.js"></script>
+    <script src="../js/lib/juicer.js"></script>
+</body>
+</html>

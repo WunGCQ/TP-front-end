@@ -1,0 +1,192 @@
+.left-tools-container {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 335px;
+}
+.left-tools-container .section-title {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 12pt;
+}
+
+.card-more {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 30px solid #000;
+    border-left: 30px solid transparent;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.3;
+    transition: opacity 0.8s;
+}
+.card-more:before {
+    content: "...";
+    display: block;
+    position: absolute;
+    left: -21px;
+    top: 8px;
+    color: #fff;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+}
+.card-more:hover {
+    opacity: 0.5;
+    box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.05);
+}
+
+.left-tools-container>div{
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 10px;
+    width: 100%;
+    font-family: "Microsoft YaHei", "Microsoft Yahei", "微软雅黑", Arial, Helvetica Neue;
+    color:#373737;
+    background-color: rgba(255, 255, 255, .15);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .1);
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.people-i-follow {
+    padding: 10px 15px;
+}
+
+.people-i-follow .user-head {
+    display: inline-block;
+    border-radius: 100%;
+    margin-top: 5px;
+    margin-right: 5px;
+    width: 32px;
+    height: 32px;
+    transition: all ease 0.3s;
+    background-image: url(../images/hpcp.jpg);
+    background-size: 100% 100%;
+}
+.people-i-follow .user-head.person:after,.people-i-follow .user-head.group:after {
+    display: block;
+    position: absolute;
+    font-size:7px;
+    color:#fff;
+    background-color: #000;
+    padding: 1px 2px;
+}
+
+.people-i-follow .user-head.person:after {
+    content: "个人";
+}
+.people-i-follow .user-head.group:after {
+    content: "团体";
+}
+
+
+/*月历*/
+.month-calendar {
+    width: 100%;
+    text-align: center;
+}
+.month-calendar tr{
+    width: 100%;
+}
+.month-calendar tbody tr{
+    height: 45px;
+}
+
+.month-calendar tbody td{
+    border-collapse: collapse;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, .1);
+    text-align: left;
+    vertical-align: top;
+    padding-top: 10px;
+    padding-left: 10px;
+    cursor: default;
+
+}
+.month-calendar tbody tr>td:first-child, .month-calendar thead tr:last-child th:first-child {
+    border-left: none;
+}
+.month-calendar tbody tr>td:last-child, .month-calendar thead tr:last-child th:last-child {
+    border-right: none;
+}
+.month-calendar tbody tr:last-child td {
+    border-bottom: none;
+}
+.month-calendar thead>tr:first-child {
+    height: 40px;
+    background-color: #6ed4c6;
+    color: #fff;
+    font-size: 12pt;
+}
+.month-calendar thead>tr:last-child {
+    height: 30px;
+}
+.month-calendar thead tr:last-child th {
+    border-collapse: collapse;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, .1);
+}
+.month-calendar a{
+    display: block;
+    position: relative;
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: rgba(255, 255, 255, .7);
+    font-size: 24px;
+    background-color: transparent;
+    transition: all ease 0.3s;
+}
+
+.month-calendar a:hover {
+    background-color: rgba(255, 255, 255, .7);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, .1);
+    color: #6ed4c6;
+}
+.month-calendar a:active {
+    background-color: rgba(255, 255, 255, .6);
+    box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, .1);
+
+}
+.month-calendar .week-number {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    color: rgba(255, 255, 255, .5);
+}
+.month-calendar .today {
+    background-color: #69CCE9;
+}
+
+
+/*我的诉求*/
+.my-demand-container {
+    padding: 10px 15px;
+}
+.my-demand-container section{
+    display: block;
+    width: 100%;
+    margin: 8px auto;
+}
+.my-demand-container section.solved:after {
+    content: "✓";
+    display: inline-block;
+    font-weight: normal;
+    font-size: 140%;
+    margin-left: 20px;
+
+}
+
+/*我的资源*/
+.my-resources-container {
+    padding: 10px 15px;
+}

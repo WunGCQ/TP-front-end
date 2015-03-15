@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>主页</title>
+
+    <script src="../js/lib/jquery-1.11.2.min.js"></script>
+    <script src="../js/lib/iPtdqx.js"></script>
+
+    <!--重置样式-->
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <!--交互动画-->
+    <link rel="stylesheet" href="../css/animations.css"/>
+    <!--页面总体布局，大体的类-->
+    <link rel="stylesheet" href="../css/index_style.css"/>
+    <!--header-bar-->
+    <link rel="stylesheet" href="../css/header.css"/>
+    <!--日历-->
+    <link rel="stylesheet" href="../css/calendar.css"/>
+    <!--待办项-->
+    <link rel="stylesheet" href="../css/schedule_board.css"/>
+    <!--卡片-->
+    <link rel="stylesheet" href="../css/card.css"/>
+    <!--滚动条-->
+    <link rel="stylesheet" href="../css/scroll_bar.css"/>
+    <!--font-awesome-->
+    <link rel="stylesheet" href="../font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <!---->
+
+
+    <style>
+
+    </style>
+
+    <!--脚本-->
+    <!--日历项-->
+    <script src="../js/calendar.js"></script>
+    <!--日程安排控件项-->
+    <script src="../js/schedule_board.js"></script>
+    <!--获取农历日期-->
+    <script src="../js/lib/get_cn_date.js"></script>
+    <!--瀑布流布局-->
+    <script src="../js/waterfall_scroll.js"></script>
+    <!--滚动条-->
+    <script src="../js/scrollbar.js"></script>
+    <!--UI动画-->
+    <script src="../js/UI_animate.js"></script>
+
+
+</head>
+<body onload="exam()">
+    <header id="header">
+        <a href="/" id="logo-box">
+            <img src="../images/home.jpg" alt=""/>
+        </a>
+        <!--有新消息时加 bar-have-message 类 -->
+        <a id="bar-search" href="javascript:alert('!!!');">
+            <span class="fa fa-search"></span>
+        </a>
+        <a id="bar-service" class="bar-menu" href="services/">
+            <span class="fa fa-plus-square"></span>
+            <span>服务</span>
+        </a>
+
+        <a id="bar-index" class="bar-menu" href="index/">
+            <span class="fa fa-th-large"></span>
+            <span>主页</span>
+        </a>
+        <a id="bar-campus" class="bar-menu" href="campus/">
+            <span class="fa fa-bars"></span>
+            <span>校园</span>
+        </a>
+        <a id="bar-message" class="bar-menu bar-have-message" href="messages/" title="消息">
+            <span class="fa fa-bell"></span>
+        </a>
+        <script>
+            function set_logo_box(){
+                var logo = document.getElementById("logo-box");
+                console.log(window.innerWidth);
+                if(window.innerWidth<1135) {
+                    logo.style["left"] = "0px";
+                }else{
+                    logo.removeAttribute("style");
+                }
+            }
+            set_logo_box();
+            window.addEventListener("resize",set_logo_box);
+        </script>
+    </header>
+
+    <div id="container">
+        <div id="left-control-wrapper">
+            <ul id="calendar">
+                <li class="Mon">
+                    <span>Mo.</span>
+                    <a class="day-box">
+                        <span>26</span>
+                    </a>
+                    <div class="day-todo-bar">
+                        <i></i>
+                    </div>
+                </li><li class="Tue">
+                <span>Tu.</span>
+                <a class="day-box">
+                    <span>27</span>
+                </a>
+                <div class="day-todo-bar">
+                    <i></i>
+                </div>
+            </li><li class="Wen">
+                <span>We.</span>
+                <a class="day-box">
+                    <span>28</span>
+                </a>
+                <div class="day-todo-bar">
+                    <i></i>
+                </div>
+            </li><li class="Thi">
+                <span>
+                    Th.
+                </span>
+                <a class="day-box">
+                    <span>29</span>
+                </a>
+                <div class="day-todo-bar">
+                    <i></i>
+                </div>
+            </li><li class="Fri">
+                <span>
+                    Fr.
+                </span>
+                <a class="day-box">
+                    <span>30</span>
+                </a>
+                <div class="day-todo-bar">
+                    <i></i>
+                </div>
+            </li><li class="Sat">
+                <span>
+                    St.
+                </span>
+                <a class="day-box">
+                    <span>31</span>
+                </a>
+                <div class="day-todo-bar">
+                    <i></i>
+                </div>
+            </li><li class="Sun">
+                <span>
+                    Su.
+                </span>
+                <a class="day-box">
+                    <span>1</span>
+                </a>
+                <div class="day-todo-bar">
+                    <i></i>
+                </div>
+            </li>
+                <i id="calendar-corner" title="更多"></i>
+            </ul>
+
+            <div id="schedule-board-box">
+                <div id="schedule-board-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" baseProfile="full" width="50" height="50" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
+	<path fill="#ffffff" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 56.1355,32.5475L 43.4466,19.8526C 42.7886,20.4988 42.298,21.2123 41.9749,21.9932C 41.6519,22.7741 41.4903,23.5729 41.4903,24.3895C 41.4903,25.1942 41.6529,25.987 41.9779,26.7679L 34.0577,34.6821C 33.3918,34.3372 32.6991,34.0776 31.9796,33.9032C 31.2601,33.7288 30.5298,33.6415 29.7885,33.6415C 28.623,33.6415 27.4953,33.8526 26.4052,34.2748C 25.315,34.697 24.3419,35.3342 23.4856,36.1865L 30.2344,42.9174L 25.9027,47.9032L 22.6532,51.8425L 20.5988,54.5836C 20.1212,55.2892 19.8823,55.753 19.8823,55.975L 19.8645,56.0701L 19.9002,56.088L 19.9002,56.1474L 19.9358,56.1058L 20.0131,56.1236C 20.2351,56.1236 20.6989,55.8888 21.4045,55.419L 24.1457,53.3765L 28.0849,50.1151L 33.0945,45.7775L 39.8016,52.5025C 40.6579,51.6462 41.2961,50.6731 41.7163,49.5829C 42.1365,48.4928 42.3466,47.367 42.3466,46.2056C 42.3466,45.4603 42.2603,44.729 42.0879,44.0115C 41.9155,43.294 41.6548,42.6003 41.3069,41.9304L 49.2202,34.0161C 50.0011,34.3372 50.7939,34.4978 51.5986,34.4978C 52.4192,34.4978 53.2189,34.3362 53.9979,34.0132C 54.7768,33.6901 55.4894,33.2015 56.1355,32.5475 Z "/>
+</svg>
+                    <span>日程</span>
+                </div>
+                <div id="schedule-board-title">
+                    <div class="time-box">
+                        <span>TIME</span>
+                        <i class="time-line-point"></i>
+                    </div>
+                    <div id="schedule-board-title-right-box">
+                        <table>
+                            <tr>
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <a href="#" onmouseover="UI_animate.shake(this);" onmouseout="UI_animate.remove_animation(this);">
+                            <span class="fa fa-trash" ></span>
+                        </a>
+                    </div>
+                </div>
+                <div id="schedule-board-list-box">
+                    <ul style="margin-top: 0px">
+                        <li>
+                            <div class="time-box">
+                                <span>8:00</span>
+                                <i class="time-line-point"></i>
+                            </div>
+                            <div class="schedule-box color1">
+                                <div class="schedule-name-wrapper">
+                                    <div class="schedule-name-box">
+                                        <span>基于透明计算的遗迹守卫协同学习</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail-box">
+                                    <div class="teacher-info">
+                                        <span class="is-boya"></span>
+                                        <span class="fa fa-user"></span>
+                                        <span class="teacher-name">人民教师 葛木宗一郎</span>
+                                    </div>
+                                    <div class="classroom-info">
+                                        <span class="fa fa-map-marker"></span>
+                                        <span>冬木市 110</span>
+                                    </div>
+                                    <div class="time-info">
+                                        <span class="fa fa-clock-o"></span>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li>
+                            <div class="time-box">
+                                <span>9:00</span>
+                                <i class="time-line-point"></i>
+                            </div>
+                            <div class="schedule-box color2">
+                                <div class="schedule-name-wrapper">
+                                    <div class="schedule-name-box">
+                                        <span>基于透明计算的遗迹守卫协同学习</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail-box">
+                                    <div class="teacher-info">
+                                        <span class="is-boya"></span>
+                                        <span class="fa fa-user"></span>
+                                        <span class="teacher-name">人民教师 葛木宗一郎</span>
+                                    </div>
+                                    <div class="classroom-info">
+                                        <span class="fa fa-map-marker"></span>
+                                        <span>冬木市 110</span>
+                                    </div>
+                                    <div class="time-info">
+                                        <span class="fa fa-clock-o"></span>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="">
+                            <div class="time-box">
+                                <span>9:00</span>
+                                <i class="time-line-point"></i>
+                            </div>
+                            <div class="schedule-box color3">
+                                <div class="schedule-name-wrapper">
+                                    <div class="schedule-name-box">
+                                        <span>基于透明计算的遗迹守卫协同学习</span>
+                                    </div>
+                                </div>
+                                <div class="schedule-detail-box">
+                                    <div class="teacher-info">
+                                        <span class="is-boya"></span>
+                                        <span class="fa fa-user"></span>
+                                        <span class="teacher-name">人民教师 葛木宗一郎</span>
+                                    </div>
+                                    <div class="classroom-info">
+                                        <span class="fa fa-map-marker"></span>
+                                        <span>冬木市 110</span>
+                                    </div>
+                                    <div class="time-info">
+                                        <span class="fa fa-clock-o"></span>
+                                        <span>50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a id="add-schedule" href="javascript:schedule_control.show_create_control();">+</a>
+
+                </div>
+                <div id="schedule-board-user-bar">
+                    <div class="gradient-bg"></div>
+                    <div class="user-head-box">
+                        <img src="../images/user-head.jpg" alt="头像"/>
+                    </div>
+                    <i id="is-online"></i>
+                    <div class="up-box">
+                        <span class="fa fa-thumbs-up"></span>
+                        <a href="#">35</a>
+                    </div>
+                    <div class="comment-box">
+                        <span class="fa fa-comment"></span>
+                        <a href="#">35</a>
+                    </div>
+                    <a href="#" id="user-bar-message-icon" title="消息">
+                        <span class="fa fa-envelope"></span>
+                    </a>
+                    <a href="#" id="user-bar-could-icon" title="云盘">
+                        <span class="fa fa-cloud"></span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="water_fall_wrapper">
+            <div class="card-row" id="row-1">
+                <div class="card news-card">
+                    <div class="news-header">
+                        <span class="news-head"></span>
+                        <span>bootstrap theme</span>
+                        <span>12-24</span>
+                    </div>
+                    <div class="article-title-img-box">
+                        <img src="http://wcqblog.github.io/assets/article_images/UI%E5%A4%87%E9%80%89/funky-tunes-css.jpg" alt="主题图片"/>
+                    </div>
+                    <header>
+                        funky-tunes-css主题,扁平+模糊背景半透明，满满的APP范
+                    </header>
+                    <div class="card-content">
+
+                        <div class="comment-box">
+                            <span>35</span>
+                            <a href="#">
+                                <span class="fa fa-comment"></span>
+                            </a>
+                        </div>
+
+                        <div class="up-box">
+                            <span>35</span>
+                            <a href="#">
+                                <span class="fa fa-thumbs-up"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                    <table class="comment-table">
+                        <tr>
+                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
+                            <td class="comment-user-name">bootstrap theme</td>
+                            <td class="comment-time">2015-2-5</td>
+                        </tr>
+                        <tr>
+                            <td class="comment-content">
+                                hehe
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
+                            <td class="comment-user-name">bootstrap theme</td>
+                            <td class="comment-time">2015-2-5</td>
+                        </tr>
+                        <tr>
+                            <td class="comment-content">
+                                hehe
+                            </td>
+                        </tr>
+                    </table>
+                    <i class="card-more" title="更多"></i>
+                </div>
+                <div class="card todo-card">
+                    <div class="card-header">
+                        <span class="fa fa-bell"></span>
+                        <span> TO DO</span>
+                    </div>
+                    <div class="add-todo-item-box">
+                        <i class="add-todo-item">+</i>
+                        <a class="todo-more"></a>
+                        <span class="todo-finished-number">6</span>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-todo-name-finished"/>
+                                <label for="is-todo-name-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            有些事我都已忘记但我现在还记得有一天晚上妈妈问我今天怎么不开心
+                        </div>
+                        <div class="time-info">
+                            2015/2/8 晚上 21:00
+                        </div>
+                        <a href="#" class="read-todo-link">i</a>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-todo-name2-finished"/>
+                                <label for="is-todo-name2-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            有些事我都已忘记但我现在还记得有一天晚上妈妈问我今天怎么不开心
+                        </div>
+                        <div class="time-info">
+                            2015/2/8 晚上 21:00
+                        </div>
+                        <a href="#" class="read-todo-link">i</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-row" id="row-2">
+                <div class="card announcement-card">
+                    <div class="card-header">
+                        <span class="fa fa-calendar"></span>
+                        <span>通知公告</span>
+                    </div>
+                    <section class="announcement-box">
+                        <header class="announcement-header">
+                            给Saber补魔
+                        </header>
+                        <div class="teacher-info">
+                            <!--<span class="is-boya"></span>-->
+                            <span class="fa fa-user"></span>
+                            <span class="teacher-name">正义之友 土狼</span>
+                        </div>
+                        <div class="classroom-info">
+                            <span class="fa fa-map-marker"></span>
+                            <span>冬木市 110</span>
+                        </div>
+                        <div class="time-info">
+                            <span class="fa fa-clock-o"></span>
+                            <span>放学我就来</span>
+                        </div>
+                        <a class="add-to-schedule-link" href="#">添加到日程</a>
+                    </section>
+
+                    <section class="announcement-box">
+                        <header class="announcement-header">
+                            给Archer补魔
+                        </header>
+                        <div class="teacher-info">
+                            <!--<span class="is-boya"></span>-->
+                            <span class="fa fa-user"></span>
+                            <span class="teacher-name">表情帝 傲娇凛</span>
+                        </div>
+                        <div class="classroom-info">
+                            <span class="fa fa-map-marker"></span>
+                            <span>冬木市 110</span>
+                        </div>
+                        <div class="time-info">
+                            <span class="fa fa-clock-o"></span>
+                            <span>放学我就来</span>
+                        </div>
+                        <a class="add-to-schedule-link" href="#">添加到日程</a>
+                    </section>
+                </div>
+                <div class="card news-card">
+                    <div class="news-header">
+                        <span class="news-head"></span>
+                        <span>bootstrap theme</span>
+                        <span>12-24</span>
+                    </div>
+                    <div class="article-title-img-box">
+                        <!--<img src="http://wcqblog.github.io/assets/article_images/UI%E5%A4%87%E9%80%89/funky-tunes-css.jpg" alt="主题图片"/>-->
+                    </div>
+                    <header>
+                        funky-tunes-css主题,扁平+模糊背景半透明，满满的APP范
+                    </header>
+                    <div class="card-content">
+
+                        <div class="comment-box">
+                            <span>35</span>
+                            <a href="#">
+                                <span class="fa fa-comment"></span>
+                            </a>
+                        </div>
+
+                        <div class="up-box">
+                            <span>35</span>
+                            <a href="#">
+                                <span class="fa fa-thumbs-up"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                    <table class="comment-table">
+                        <tr>
+                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
+                            <td class="comment-user-name">bootstrap theme</td>
+                            <td class="comment-time">2015-2-5</td>
+                        </tr>
+                        <tr>
+                            <td class="comment-content">
+                                hehe
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
+                            <td class="comment-user-name">bootstrap theme</td>
+                            <td class="comment-time">2015-2-5</td>
+                        </tr>
+                        <tr>
+                            <td class="comment-content">
+                                hehe
+                            </td>
+                        </tr>
+                    </table>
+                    <i class="card-more" title="更多"></i>
+                </div>
+                <div class="card activity-card">
+                    <div class="card-header">
+                        <div class="activity-card-icon">
+                            !
+                            <i></i>
+                        </div>
+                        <span>近期活动</span>
+                    </div>
+                    <dl class="activity-list">
+                        <dd class="activity-item">
+                            <header class="activity-title">
+                                <a>[一月新番]路人女主的养成方法 第四话（真当酒神不上b站）</a>
+                            </header>
+                            <span class="time-info">02-09</span>
+                        </dd>
+                        <dd class="activity-item">
+                            <header class="activity-title">
+                                <a>[一月新番]路人女主的养成方法 第四话（真当酒神不上b站）</a>
+                            </header>
+                            <span class="time-info">02-06</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="fa fa-arrow-up" id="scroll-up"></span>
+    <span class="fa fa-arrow-down" id="scroll-down"></span>
+
+
+
+</body>
+<script>
+//    var calendar_control = new calendar();这个全局变量会在下面的控件中引入
+    var schedule_control = new schedule_board();
+//    exam();
+</script>
+</html>

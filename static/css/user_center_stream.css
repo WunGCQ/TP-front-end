@@ -1,0 +1,64 @@
+#water_fall_wrapper {
+    display: block;
+    position: absolute;
+    vertical-align: top;
+    background: transparent;
+    width:732px;
+    /*height: 100%;*/
+    height: auto;
+    margin-left: 10px;
+    transition: height 0.3s ease, width 0.3s ease;
+}
+.card-row {
+    display: block;
+    vertical-align: top;
+    position: relative;
+    box-sizing: content-box;
+    float: left;
+    width: 306px;
+    height: auto;
+    margin-left: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.card{
+    display: block;
+    position: relative;
+    width: 306px;
+    height: auto;
+    z-index: 15;
+    margin-top: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    font-family: "微软雅黑", "Microsoft Yahei", Arial, Helvetica, sans-serif, "宋体";
+    color:#373737;
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+    cursor: default;
+}
+.publish-time {
+    display: block;
+    position: absolute;
+    background-color: rgba(255, 255, 255, .5);
+    font-size: 6pt;
+    color: rgba(255, 255, 255, .9);
+    height: 15px;
+    line-height: 15px;
+}
+.publish-time:before {
+    content: "发表于";
+    display: inline;
+    text-indent: 10px;
+}
+
+/*纯文本卡片*/
+
+.card.pure-text {
+    display: block;
+    height: 110px;
+    font-size: 8pt;
+}
+.card.pure-text .publish-time{
+    display: block;
+}
+

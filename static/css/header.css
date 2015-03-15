@@ -1,0 +1,91 @@
+#header {
+    display: block;
+    position: fixed;
+    z-index: 99999;
+    width: 100%;
+    height: 55px;
+    padding-top: 20px;
+    text-align: right;
+    background-color: #fff;
+    box-shadow: 4px 10px 20px 10px rgba(0, 0, 0, .1);
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei","Microsoft Yahei","微软雅黑","","Courier New","Helvetica Neue", Courier;
+}
+
+#header a {
+    font-size: 16px;
+    color: #808080;
+    text-decoration: none;
+}
+#header a:hover {
+    text-decoration: none;
+}
+#header a:active {
+    text-decoration: none;
+}
+#header a:link {
+    text-decoration: none;
+}
+#header a:visited  {
+    text-decoration: none;
+}
+
+
+
+#header .fa {
+    font-size: 16px;
+}
+#bar-search {
+    margin-right: 90px;
+}
+.bar-menu {
+    margin-right: 20px;
+}
+.bar-menu>span:nth-child(2){
+    display: inline-block;
+    margin-left: -2px;
+
+}
+
+#logo-box {
+    display: block;
+    position: absolute;
+    width: 67px;
+    height: 97px;
+    left: calc(50% - 560px);
+
+    top: -10px;
+
+    background-position: 0 10px;
+    background-repeat: no-repeat;
+    background-color: #35ABD9;
+    box-shadow: 5px 5px 20px 2px rgba(0, 0, 0, .15);
+    transition: top ease 0.5s;
+    overflow: hidden;
+}
+#logo-box img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    left: 0;
+
+}
+
+#logo-box:hover {
+    top:0;
+}
+
+#bar-message {
+    margin-right: 100px;
+}
+/*消息提示红点*/
+.bar-have-message:after {
+    content: "●";
+    color: #DA0722;
+    font-size: 16px;
+    position: relative;
+    margin-left: -15px;
+    top: -8px;
+}
