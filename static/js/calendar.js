@@ -35,7 +35,7 @@ function calendar() {
       4:"星期四",
       5:"星期五",
       6:"星期六",
-      7:"星期日"
+      0:"星期日"
     };
 //今天
     this.today = new Date();
