@@ -53,6 +53,7 @@ body {
     margin-top: 117px;
     border-radius: 4px;
     background-color: rgba(255, 255, 255, .451);
+    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
     text-align: center;
 }
 .buaa-logo {

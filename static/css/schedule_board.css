@@ -3,12 +3,13 @@
     display: block;
     position: relative;
     margin-top: 5px;
-    width: 385px;
+    width: 100%;
     /*height: 580px;*/
     height: calc(100% - 100px);
     min-height: 580px;
     z-index: 5;
-    font-family:  Arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', 宋体, Tahoma, Arial, Helvetica, STHeiti;
+    color: #494949;
+    font-family:  Arial, 'Hirag ino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', 宋体, Tahoma, Arial, Helvetica, STHeiti;
 }
 #schedule-board-header {
     display: block;
@@ -32,7 +33,7 @@
     cursor: default;
 }
 #schedule-board-header svg {
-    margin-left: 10px;
+    margin-left: 3px;
 }
 #schedule-board-header span{
     font-size: 24px;
@@ -55,14 +56,14 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    width: 320px;
+    width: 300px;
     height: 100%;
 }
 
 #schedule-board-box .time-box {
     position: relative;
     border-right: 1px solid #9a9a9a;
-    width: 52px;
+    width: 45px;
     text-align: center;
 }
 #schedule-board-title .time-box {
@@ -102,7 +103,7 @@
     width: 85px;
 }
 #schedule-board-title td {
-    color:#333;
+    color:#494949;
     font-size: 16px;
     font-weight: normal;
 }
@@ -158,7 +159,7 @@
     display: inline-block;
     vertical-align: top;
     position: relative;
-    width: 331px;
+    width: 313px;
     height: 55px;
     padding: 0;
     margin-left: -3px;
@@ -168,7 +169,7 @@
 #schedule-board-list-box .schedule-name-wrapper {
     display: inline-block;
     vertical-align: top;
-    width: 165px;
+    width: 150px;
     height: 100%;
 }
 #schedule-board-list-box .schedule-name-box {
@@ -176,7 +177,7 @@
     vertical-align: middle;
     width: 100%;
     height: 100%;
-    color:#333;
+    color:#494949;
     font-size: 16px;
 }
 #schedule-board-list-box .schedule-name-box span {
@@ -184,19 +185,19 @@
     vertical-align: middle;
     line-height: 20px;
     padding-left: 15px;
-    font-weight: 600;
+    font-weight: normal;
 }
 #schedule-board-list-box .schedule-detail-box {
     display: inline-block;
     vertical-align: top;
     height: 100%;
-    width: 160px;
+    width: 150px;
 }
 #schedule-board-list-box .schedule-detail-box>div{
     display:inline-block;
     vertical-align: top;
     font-size: 14px;
-    color:#333;
+    color: inherit;
     height: 50%;
 }
 #schedule-board-list-box .teacher-info {
@@ -222,7 +223,7 @@
     border-radius: 40px;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, .2);
-    left: 32px;
+    left: 25px;
     bottom: 50px;
     text-align: center;
     line-height: 38px;

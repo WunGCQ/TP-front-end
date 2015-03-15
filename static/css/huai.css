@@ -615,7 +615,8 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
 #leave-message .reply{
     display: block;
     position: relative;
-    margin-top: 5px;
+    margin-top: 10px;
+    text-indent: 1em;
 
 }
 #leave-message .reply-to:before {
@@ -624,7 +625,7 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     margin-right: 5px;
     font-size: 14px;
     font-weight: normal;
-    color: #999;
+    color: #666;
 }
 #leave-message .reply-content {
     margin-top: 5px;
@@ -648,6 +649,7 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     color: #fff;
     font-size: 12px;
     margin-top: 0;
+    cursor:pointer;
 }
 #add-message-link:before {
     content: "";
@@ -673,7 +675,7 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
 #leave-message .user-name {
     display: block;
     position: relative;
-    max-width: 700px;
+    max-width: 600px;
     margin: 15px auto 5px auto;
     width: 90%;
     text-align: left;
@@ -696,11 +698,11 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     font-weight: normal;
     color: #737373;
 }
-#edit-message{
+#edit-message,.comment-area{
     display: block;
     position: relative;
     box-sizing: border-box;
-    max-width: 700px;
+    max-width: 600px;
     width: 90%;
     min-height: 80px;
     height: auto;
@@ -713,7 +715,21 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     outline: none;
     text-align: left;
     font-size: 16px;
-
+}
+div [contenteditable="true"] font{
+    color:#494949 !important;
+}
+#leave-message .comment-wrapper {
+    margin: 5px 0;
+    padding-bottom: 30px;
+    display: none;
+}
+.comment-wrapper .button{
+    float:right;
+    right: 30px;
+}
+#leave-message .reply-content .comment-wrapper {
+    margin-left: 10px;
 }
 #edit-message:focus {
     border: 1px solid #aaa;
@@ -743,7 +759,7 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
 #leave-message td[colspan="2"] {
     text-align: center;
 }
-#leave-message section a{
+#leave-message section .comment{
     color: #aaa;
     font-size: 12px;
     text-indent: 1em;
@@ -772,7 +788,7 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
 #leave-message .form tr>td[colspan="2"] {
     text-align: center;
 }
-.form .button {
+.button {
     display: inline-block;
     position: relative;
     text-align: center;
@@ -784,8 +800,9 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     font-size: 16px;
     font-weight: 500;
     transition: all ease .5s;
+    cursor: pointer;
 }
-.form .button:hover {
+.button:hover {
     text-decoration: none;
     background-color: #986fd2;
 }
@@ -815,7 +832,7 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     width: 100%;
     text-align: center;
     bottom: 20px;
-    opacity: 0;
+    opacity: 1;
     transition: all ease 0.3s;
 }
 .top-arrow-wrapper .top-arrow {
@@ -827,9 +844,18 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     background-image: url(../images/top-arrow.png);
     background-size: 24px 24px;
     cursor: pointer;
+    opacity: 0.3;
 }
-.top-arrow-wrapper:hover {
+.top-arrow:hover {
     opacity: 1;
+}
+.comment {
+    cursor: pointer;
+    margin-left: 10px;
+    visibility: hidden;
+}
+#leave-message>section:hover .comment{
+    visibility: visible;
 }
 footer {
     display: block;
@@ -839,6 +865,7 @@ footer {
     padding: 40px 0;
     background-color: transparent;
     text-align: center;
+    display: none;
 }
 footer section {
     display: inline-block;

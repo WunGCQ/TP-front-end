@@ -18,6 +18,7 @@
 }
 .news-header {
     width: 100%;
+    color: rgba(55, 55, 55, .9);
     height: 40px;
 }
 .news-header .news-head {
@@ -50,7 +51,7 @@
 .article-title-img-box {
     width: 100%;
     height: auto;
-    /*max-height: 200px;*/
+    max-height:240px;
     overflow: hidden;
 }
 .news-card img {
@@ -63,6 +64,9 @@
     position: relative;
     width: 100%;
     font-size: 14px;
+    height:20px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, .2);
 }
 .news-card header {
     display: block;
@@ -70,6 +74,8 @@
     padding: 10px 20px 5px 20px;
     font-size: 20px;
     line-height: 1.3em;
+    color: rgba(55, 55, 55, .9);
+    background-color: rgba(255, 255, 255, .2);
     cursor: pointer;
 
 }
@@ -77,6 +83,7 @@
     color:#666;
     float: right;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 .comment-table {
     width: 100%;
@@ -86,8 +93,7 @@
     height:auto;
 }
 .comment-table .user-head {
-    margin-top: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
     margin-left: 18px;
     width: 20px;
     height: 20px;
@@ -95,7 +101,7 @@
 }
 .comment-user-name {
     width: auto;
-    color:#333;
+    color:rgba(55, 55, 55, .9);
 }
 .comment-time {
     width: 100px;
@@ -114,7 +120,7 @@
     bottom: 0;
     width: 0;
     height: 0;
-    border-bottom: 30px solid #000;
+    border-bottom: 30px solid rgba(55, 55, 55, .9);
     border-left: 30px solid transparent;
     cursor: pointer;
     z-index: 10;
@@ -215,14 +221,14 @@
     position: absolute;
     right: 15px;
     bottom: 10px;
-    color: #333;
+    color: rgba(55, 55, 55, .9);
     font-size: 13px;
     transition: color 0.3s, text-shadow 0.5s;
 
 }
 .announcement-box .add-to-schedule-link:hover {
     text-decoration: none;
-    color:#000;
+    color:rgba(55, 55, 55, .9);
     text-shadow: 0 0 2px rgba(0, 0, 0, .5);
 }
 .announcement-box .add-to-schedule-link:before {
@@ -258,7 +264,7 @@
     width: 100%;
     height: auto;
     padding-bottom: 2px;
-    color:#333;
+    color:rgba(55, 55, 55, .9);
     font-size: 16px;
 }
 .add-todo-item-box {
@@ -290,7 +296,7 @@
     display: block;
     position: relative;
     float: right;
-    margin-right: 15px;
+    margin-right: 10px;
     color: #fff;
     font-size: 20px;
     cursor: pointer;
@@ -307,7 +313,7 @@
     height: 42px;
     clear: both;
     margin-left: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     padding-bottom: 5px;
     border-bottom: 1px solid rgba(255, 255, 255, .6);
 }
@@ -356,7 +362,7 @@
 
 }
 .todo-checkbox-box input[type=checkbox]:checked + label{
-    border-color: #000;
+    border-color: rgba(55, 55, 55, .9);
     opacity: 0.94;
 }
 
@@ -368,6 +374,7 @@
     height: 22px;
     margin-left: 0;
     margin-top: 6px;
+    padding-top: 5px;
     font-size: 18px;
     overflow: hidden;
     white-space:nowrap;
@@ -391,18 +398,18 @@
 .todo-box .read-todo-link {
     display: block;
     position: absolute;
-    bottom: 15px;
+    bottom: 18px;
     right: 10px;
-    height: 20px;
-    width: 20px;
-    color: #fff;
-    font-size: 16px;
+    height: 16px;
+    width: 16px;
+    color: #FFF;
     border-radius: 100%;
-    border: 2px solid #fff;
+    border: 2px solid #FFF;
     opacity: 0.6;
-    line-height: 20px;
+    line-height: 16px;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease 0s;
+    font-size: 14px;
 }
 .todo-box .read-todo-link:hover {
     text-decoration: none;
@@ -460,7 +467,7 @@
     width: 100%;
     height: auto;
     padding-bottom: 2px;
-    color:#333;
+    color:rgba(55, 55, 55, .9);
     font-size: 16px;
 }
 
@@ -488,7 +495,7 @@
     position: relative;
     width: calc(100% - 20px);
     height: auto;
-    font-size: 16px;
+    font-size: 10pt;
     line-height: 1.3em;
     color: #131313;
     cursor: pointer;
@@ -501,5 +508,7 @@
     margin-right: 15px;
     font-size: 13px;
     color: #555;
-
+}
+.card-row{
+    margin-top: 6px;
 }

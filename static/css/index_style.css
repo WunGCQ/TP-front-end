@@ -30,7 +30,7 @@ body {
     /*margin: 115px 67px 50px 67px;*/
     margin: 115px auto 50px auto;
     /*width: calc(100% - 150px);*/
-    width: 1120px;
+    width: 1080px;
     height: calc(100% - 180px);
     min-height: 660px;
     overflow: hidden;
@@ -64,7 +64,7 @@ body {
     display: inline-block;
     position: relative;
     vertical-align: top;
-    width: 385px;
+    width: 360px;
     height: 100%;
 }
 /*右边卡片的包裹box*/
