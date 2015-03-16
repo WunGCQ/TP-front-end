@@ -1,0 +1,49 @@
+#water_fall_wrapper {
+    clear: both;
+    padding-bottom: 50px;
+}
+.images {
+    display: block;
+    position: relative;
+    float: left;
+    height: 211px;
+    width: 211px;
+    z-index: 100;
+}
+.images article {
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    padding: 100px 10px 10px 10px;
+    left: 0;
+    top:0;
+    z-index: 200;
+    width: 211px;
+    height: 211px;
+    transition: all ease-out 1s;
+    cursor: pointer;
+}
+
+.images article p{
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    color: rgba(255, 255, 255, .9);
+    opacity: 0;
+    line-height: 1.4em;
+    transition: all ease 0.5s;
+}
+.images article time{
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    opacity: 0;
+    color: rgba(255, 255, 255, .9);
+    transition: all ease 0.5s;
+}
+.images article:hover {
+    background-color: rgba(0, 0, 0, .4);
+}
+.images article:hover>p, .images article:hover>time {
+    opacity: 1;
+}

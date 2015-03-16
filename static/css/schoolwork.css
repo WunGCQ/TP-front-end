@@ -11,19 +11,129 @@
     height: 30px;
     text-align: left;
     line-height: 30px;
-    font-size: 24px;
+    font-size: 16px;
 }
 .schoolwork-waterfall .card .icon{
-    color: rgba(255 ,255 ,255);
+    color: rgba(255 ,255 ,255 ,.9);
+    font-size: 24px;
 }
-
+.schoolwork .card-content {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+.card-content table {
+    width: 100%;
+}
 
 .schoolwork-waterfall .card.term-classes-section {
     background-color: #B1E1DB;
 }
-.schoolwork-waterfall .card.recent-class-table {
+.schoolwork-waterfall .card.recent-class-section {
     background-color: #AEDDEB;
 }
 .schoolwork-waterfall .card.grade-info-section {
     background-color: #C6DAF5;
+}
+.activity-card-icon{
+    display: inline-block;
+    position: relative;
+    color: #AEDDEB;
+    top: -3px;
+    width: 22px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 2px 2px 2px 0;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+}
+.activity-card-icon i{
+    display: block;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    border-left: 5px solid #fff;
+    border-bottom: 4px solid transparent;
+}
+
+/*学期课程*/
+.term-classes-section table td{
+    height: 18px;
+    font-size: 14px;
+}
+.term-classes-section table tr>td:last-child {
+    text-align: right;
+    letter-spacing: 0.1em;
+}
+
+/*近期课表*/
+.recent-class-section th {
+    height: 14px;
+    line-height: 14px;
+}
+.recent-class-section th time {
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+    color: #737373;
+}
+.recent-class-section .card-content .icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    margin-right: 5px;
+}
+.recent-class-section table td{
+    height: 16px;
+    text-align: left;
+    line-height: 16px;
+}
+.recent-class-section .class-name{
+    margin-top: 10px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px!important;
+}
+.white-border {
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    height: 24px;
+    line-height: 24px;
+}
+.recent-class-section .class-name {
+    display: block;
+    font-size: 16px!important;
+}
+/*成绩信息*/
+.grade-info-section th {
+    height: 14px;
+    line-height: 14px;
+}
+.grade-info-section th time {
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+    color: #737373;
+}
+.grade-info-section .card-content .icon {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    margin-right: 5px;
+}
+.grade-info-section table td{
+    height: 16px;
+    text-align: left;
+    line-height: 16px;
+}
+.grade-info-section td span {
+    margin-right: 15px;
+}
+.grade-info-section td[colspan="2"] {
+    font-size: 16px;
+    padding-top: 10px;
+}
+.grade-info-section td[rowspan="2"] {
+    font-size: 16px;
 }
