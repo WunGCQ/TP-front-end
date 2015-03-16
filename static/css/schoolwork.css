@@ -1,0 +1,29 @@
+.schoolwork-waterfall .card {
+    box-sizing: border-box;
+    padding: 10px;
+    color: #494949;
+    font-size: 12px;
+}
+.schoolwork-waterfall .card header.title{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 30px;
+    text-align: left;
+    line-height: 30px;
+    font-size: 24px;
+}
+.schoolwork-waterfall .card .icon{
+    color: rgba(255 ,255 ,255);
+}
+
+
+.schoolwork-waterfall .card.term-classes-section {
+    background-color: #B1E1DB;
+}
+.schoolwork-waterfall .card.recent-class-table {
+    background-color: #AEDDEB;
+}
+.schoolwork-waterfall .card.grade-info-section {
+    background-color: #C6DAF5;
+}

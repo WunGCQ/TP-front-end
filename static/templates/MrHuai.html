@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/topMessage.css"/>
     <script src="../js/lib/jquery.min.js"></script>
 
+
 </head>
 
 <body onResize="setFullScreenElementsStyle()">
@@ -127,7 +128,7 @@
         <div contenteditable="true" id="edit-message">
             <span class="placeholder">在这里写下想对怀校长说的话吧!不过要记得，上网不涉密哟~~</span>
         </div>
-        <a href="javascript:submit_nessage();" id="submit-message();" class="button">提交</a>
+        <a href="javascript:submit_message();" id="submit-message();" class="button">提交</a>
     </div>
     <form class="login-form form" style="display: none;">
         <table>
@@ -190,10 +191,10 @@
                 <a onclick="javascript:submit_comment(this);" class="button">提交</a>
             </div>
         </article>
-        <article class="reply" data-id="">
+        <article class="reply" data-id="233" data-from="雾散尽之后">
             <span class="reply-from">酒杯斟满</span>
             <span class="reply-to">怀校长</span>
-            <article class="reply-content">我一定谨记校长的教诲，努力工作，升职加薪，出任CEO迎娶白富美走上人生巅峰，为北航争光添彩！
+            <article class="reply-content" data-id="666" data-from="酒杯斟满" data-to="怀校长" data-target="233">我一定谨记校长的教诲，努力工作，升职加薪，出任CEO迎娶白富美走上人生巅峰，为北航争光添彩！
                 <a onclick="javascript:show_edit_comment(this);" class="comment">回复</a>
             </article>
             <div class="comment-wrapper">
@@ -304,7 +305,25 @@
                 setNavActive(index);
             }
         });
-
+        $("#leave-message").delegate(".comment-area","focus",function(){
+            var t = this;
+            if(t.children.length>0){
+                if(this.children[0].className=="placeholder"){
+                    this.innerHTML="";
+                }
+            }
+        });
+        $("#edit-message").focus(function(){
+            var t = this;
+            if(t.children.length>0){
+                if(this.children[0].className=="placeholder"){
+                    this.innerHTML="";
+                }
+            }
+        });
+//        $("#leave-message").delegate(".comment-area","keydown",function(){
+//           var t = this;
+//        });
 
         window.scrollData = {};
         var flag1 = true;
@@ -405,6 +424,7 @@
             });
         },500);
 
+
 //            $('#page-1').bind('mousewheel', function(event, delta, deltaX, deltaY) {
 //                if(delta<0){
 //                    setTimeout(function(){
@@ -472,8 +492,8 @@
                 e.classList.add("show");
             }
         }
-
     }
+
     function setNavActive(index){
         $("#pic-nav li").attr("class","");
         if(0<=index<=4){
@@ -502,13 +522,15 @@
 
         var t = document.getElementById("add-message-link").getAttribute("data-clicked");
         if(t == "false") {
+
             if(window.user){
+                var username = juicer("${user.username}",{"user":window.user});
                 if($("#leave-message .user-name").get().length==0) {
-                    var str = '<div class="user-name"><span>'+window.user.username+'</span></div>';
+                    var str = '<div class="user-name"><span>'+username+'</span></div>';
                     $(str).insertAfter("#add-message-link");
                 }
                 else {
-                    $("#leave-message .user-name span").html(window.user.username);
+                    $("#leave-message .user-name span").text(window.user.username);
                 }
                 $("#leave-message-header").css({"height":"150px"});
                 $("#add-message").fadeIn(300);
@@ -602,7 +624,6 @@
                         Message:"这里写错误信息"
                     });
                 }
-
             }
         });
 
@@ -617,7 +638,6 @@
             $(".top-arrow").css({
                 "opacity":"0.6",
                 "background-image":"url(../images/down-arrow.png)"
-
             });
         }
     }
@@ -634,47 +654,241 @@
         }
 
     }
+
     function submit_message(){
-        var username = window.user.nickname;
-        var content = $("#edit-message font").html();
-        content = escape(content);
-        alert("用户名： "+user+"<br>+内容： "+content);
+        var username = juicer("${user.username}",{"user":window.user});
+        var textarea = document.getElementById("edit-message");
+        var content = $(textarea).text();
+        var dataSet = {
+            "from":username,
+            "content":content
+        };
+        $.ajax({
+            type: "post",
+            url : "/static/templates/create_message/",
+            dataType:'json',
+            data: dataSet,
+            success: function(data){
+                if(data.status==1){
+                    topMessage({
+                        Type:"success",
+                        Message:"评论成功！"
+                    });
+                    var j = {"Messages":[data.message]};
+                    var text = juicer(window.MessageTemplateTemplate,j);
+                    $(text).insertBefore("#leave-message>section:eq(0)");
+
+                    //回调函数
+                    if(typeof callback == "function") {
+                        callback();//如果有参数加参数
+                    }
+                }else{
+                    topMessage({
+                        Type:"normal",
+                        Message:"审核中"
+                    });
+                }
+            },
+            error:function(){
+                topMessage({
+                    Type:"warning",
+                    Message:"知不道咋整得，与服务器连接不上了，待会再整吧=。="
+                });
+            }
+        });
+
     }
 
-    function submit_comment(obj){
-        var link = obj;
-        var textarea = obj.previousElementSibling;
-        var from = window.user.nickname;
-        var to = textarea.parentNode.previousElementSibling.getAttribute("data-to");
-        var content = $(textarea.getElementsByTagName("font")[0]).html();
-        content = escape(content);
-        alert("用户名： "+username+"<br>+内容： "+ content);
-        alert("")
+    function getDivTextContentNumber(divObj){
+        var textarea = divObj;
+        if(-1){
+            //手写练习：innerText，真的是万分喜欢~~
+            var val = textarea.childNodes;
+            var content = "";
+            for(var i=0;i<val.length; i++){
+                if(val[i].nodeType == 3){
+                    //文本节点
+                    content += val[i];
+                }else{
+                    content+=val[i].childNodes[0];
+                }
+            }
+            content = content.replace(/<br>/g," ");
+        }else{
+
+            return textarea.innerText.length;
+        }
+
     }
+
+
+    function submit_comment(obj){
+        if(typeof window.user== "undefined" ||window.user == null){
+            topMessage({
+                Type:"fail",
+                Message:"您尚未登录，请注册或登录"
+            });
+            show_editor();
+
+        }else{
+            var link = obj;
+            var textarea = link.previousElementSibling;
+            var from = window.user.username;
+            window.block = textarea.parentNode.parentNode;
+            var to = block.getAttribute("data-from");
+            var target = block.getAttribute("data-id");
+            var content = $(textarea).text();
+            if(!block.classList.contains("reply")){
+                block = block.parentNode;
+            }
+            content = content.replace(/\n/," ");
+            var dataSet = {
+                "from":from,
+                "to":to,
+                "target":target,
+                "content":content
+            };
+            $.ajax({
+                type: "post",
+                url : "/api/create_reply",
+                dataType:'json',
+                data: dataSet,
+                success: function(data){
+                    if(data.status==1){
+                        topMessage({
+                            Type:"success",
+                            Message:"评论成功！"
+                        });
+                        var j = {"reply":data.reply};
+                        var text = juicer(window.ReplyTemplate,j);
+                        $(block).append(text);
+                        //回调函数
+                        if(typeof callback == "function") {
+                            callback();//如果有参数加参数
+                        }
+                    }else{
+                        topMessage({
+                            Type:"normal",
+                            Message:"审核中"
+                        });
+                    }
+                    $(textarea.parentNode).hide();
+                },
+                error:function(){
+                    topMessage({
+                        Type:"warning",
+                        Message:"知不道咋整得，与服务器连接不上了，待会再整吧=。="
+                    });
+                }
+            });
+
+        }
+
+    }
+
 
     window.user = null;
     window.MessageTemplate = [
         '{@each messages as message}',
-            '<section data-id="${message.id}" data-from="${message.from}">',
+            '<section data-id="${message.id}" data-from="${message.from}" >',
                 '<h2>${message.from}</h2>',
                 '<time>${message.time}</time>',
                 '<p>',
                     '${message.content}',
+                    '<a onclick="javascript:show_edit_comment(this);" class="comment">回复</a>',
                 '</p>',
-                '{@each message.replay as reply }',
-                '<article class="reply" data-id="${reply.id}" data-from="${reply.from}" data-to="${reply.to}" data.target="{reply.target}">',
+                '<div class="comment-wrapper">',
+                    '<div contenteditable="true" class="comment-area">',
+                        '<span class="placeholder">回复内容</span>',
+                    '</div>',
+                    '<a onclick="javascript:submit_comment(this);" class="button">提交</a>',
+                '</div>',
+                '{@each message.replies as reply }',
+                '<article class="reply" data-id="${reply.id}" data-from="${reply.from}" data-to="${reply.to}">',
                     '<span class="reply-from">${reply.from}</span>',
                     '<span class="reply-to">${reply.to}</span>',
                     '<article class="reply-content">',
                         '${reply.content}',
+                        '<a onclick="javascript:show_edit_comment(this);" class="comment">回复</a>',
                     '</article>',
+                    '<div class="comment-wrapper">',
+                        '<div contenteditable="true" class="comment-area">',
+                            '<span class="placeholder">回复内容</span>',
+                        '</div>',
+                        '<a onclick="javascript:submit_comment(this);" class="button">提交</a>',
+                    '</div>',
                 '</article>',
                 '{@/each}',
             '</section>',
         '{@/each}'
     ].join("");
-    //滚动滑轮触发scrollFunc方法
 
+    window.ReplyTemplate=[
+        '<article class="reply" data-id="${reply.id}" data-from="${reply.from}" data-to="${reply.to}">',
+        '<span class="reply-from">${reply.from}</span>',
+        '<span class="reply-to">${reply.to}</span>',
+        '<article class="reply-content">',
+        '${reply.content}',
+        '<a onclick="javascript:show_edit_comment(this);" class="comment">回复</a>',
+        '</article>',
+        '<div class="comment-wrapper">',
+        '<div contenteditable="true" class="comment-area">',
+        '<span class="placeholder">回复内容</span>',
+        '</div>',
+        '<a onclick="javascript:submit_comment(this);" class="button">提交</a>',
+        '</div>',
+        '</article>'
+    ].join("");
+
+//    //滚动滑轮触发scrollFunc方法
+//    var test_json ={
+//        "messages":[
+//            {
+//                "id":2,
+//                "from":"from",
+//                "time":"time",
+//                "content":"哈哈哈哈哈哈哈哈哈就是这么简单<script>alert('!!!')<\/script>",
+//                "replies":[
+//                    {
+//                        "id":"reply_id",
+//                        "from":"ergou",
+//                        "to":"yadan",
+//                        "content":"哈哈哈就是这么任性"
+//                    },
+//                    {
+//                        "id":"reply_id",
+//                        "from":"ergou",
+//                        "to":"yadan",
+//                        "content":"哈哈哈就是这么有钱"
+//                    }
+//
+//                ]
+//
+//            },
+//            {
+//                "id":1,
+//                "from":"from",
+//                "time":"time",
+//                "content":"哈哈哈哈哈哈哈哈哈哪里这么简单<script>alert('!!!')<\/script>",
+//                "replies":[
+//                    {
+//                        "id":"reply_id",
+//                        "from":"ergou",
+//                        "to":"yadan",
+//                        "content":"哈哈哈就是这么任性"
+//                    },
+//                    {
+//                        "id":"reply_id",
+//                        "from":"ergou",
+//                        "to":"yadan",
+//                        "content":"哈哈哈就是这么有钱"
+//                    }
+//
+//                ]
+//
+//            }
+//        ]
+//    }
 
 
 </script>
@@ -682,5 +896,7 @@
 <script src="../js/lib/jquery.mobile.min.js"></script>
 <script src="../js/lib/mousewheel.min.js"></script>
 <script src="../js/lib/juicer.js"></script>
+<script src="../js/lib/topMessage.js"></script>
+<script src="../js/lib/iPtdqx.js"></script>
 </body>
 </html>

@@ -155,6 +155,7 @@ function scrollbar(){
 
 
     };
+
     this.bind_key_scroll = function(){
 
         s.scroll_element.tabIndex = 0;
@@ -176,8 +177,18 @@ function scrollbar(){
         });
 
         //});
-
-
+    };
+    this.bind_mouse_wheel_scroll = function(){
+        s.scroll_element.tabIndex = 0;
+        $(s.scroll_element).bind('mousewheel',function(event,delta,deltaX,deltaY){
+            if(delta<0){
+                s.scroll_down(10);
+                console.log("向下滚动");
+            }else{
+                s.scroll_up(10);
+                console.log("向上滚动");
+            }
+        });
     };
     //绑定刷新事件
     this.fresh_controll = function() {
@@ -202,7 +213,8 @@ function scrollbar(){
         this.add_scroll_bar();
         this.fresh_controll();
         this.bind_key_scroll();
-        this.bind_button_scroll();
+        //this.bind_button_scroll();
+        this.bind_mouse_wheel_scroll();
     };
     return  this;
 }

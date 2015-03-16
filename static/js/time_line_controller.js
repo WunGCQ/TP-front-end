@@ -73,6 +73,7 @@ time_line_controller.prototype.bind = function(){
             }
         }
         target.className = "year-point active";
+        var month_number = target.children.length-2;
     });
 
     $(".month-point-wrapper").hover(function(){

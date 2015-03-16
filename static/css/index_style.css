@@ -79,6 +79,7 @@ body {
     height: auto;
     margin-left: 10px;
     transition: height 0.3s ease, width 0.3s ease;
+    outline: none;
 }
 .card-row {
     display: block;

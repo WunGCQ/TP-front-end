@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+
+    <script src="../js/lib/jquery-1.11.2.min.js"></script>
+    <script src="../js/lib/iPtdqx.js"></script>
+
+    <!--重置样式-->
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <!--用户中心公共样式-->
+    <link rel="stylesheet" href="../css/user_center_style.css"/>
+    <!--交互动画-->
+    <link rel="stylesheet" href="../css/animations.css"/>
+    <!--header-bar-->
+    <link rel="stylesheet" href="../css/header.css"/>
+
+
+    <!--个人主页的顶端公用模块-->
+    <link rel="stylesheet" href="../css/user_center_top_user_info_block.css"/>
+    <!--时间轴-->
+    <link rel="stylesheet" href="../css/time_line.css"/>
+    <!--新鲜事-->
+    <link rel="stylesheet" href="../css/user-center-user-news.css"/>
+    <!--左边工具栏-->
+    <link rel="stylesheet" href="../css/user_center_left_tools.css"/>
+    <!--font-awesome-->
+    <link rel="stylesheet" href="../font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <!---->
+    <link rel="stylesheet" href="../css/user_center_stream.css"/>
+
+
+    <style>
+
+    </style>
+
+    <!--脚本-->
+    <!--日历项-->
+    <script src="../js/calendar.js"></script>
+    <!--日程安排控件项-->
+    <script src="../js/schedule_board.js"></script>
+    <!--获取农历日期-->
+    <script src="../js/lib/get_cn_date.js"></script>
+    <!--瀑布流布局-->
+    <script src="../js/waterfall_scroll.js"></script>
+    <!--滚动条-->
+    <script src="../js/scrollbar.js"></script>
+    <!--UI动画-->
+    <script src="../js/UI_animate.js"></script>
+
+
+</head>
+<body>
+<header id="header">
+    <a href="/" id="logo-box">
+        <img src="../images/home.jpg" alt=""/>
+    </a>
+    <!--有新消息时加 bar-have-message 类 -->
+    <a id="bar-search" href="javascript:alert('!!!');">
+        <span class="fa fa-search"></span>
+    </a>
+    <a id="bar-service" class="bar-menu" href="services/">
+        <span class="fa fa-plus-square"></span>
+        <span>服务</span>
+    </a>
+
+    <a id="bar-index" class="bar-menu" href="index/">
+        <span class="fa fa-th-large"></span>
+        <span>主页</span>
+    </a>
+    <a id="bar-campus" class="bar-menu" href="campus/">
+        <span class="fa fa-bars"></span>
+        <span>校园</span>
+    </a>
+    <a id="bar-message" class="bar-menu bar-have-message" href="messages/" title="消息">
+        <span class="fa fa-bell"></span>
+    </a>
+</header>
+
+<div id="user-info-block">
+    <div id="user-intro-blur-bg" class="blur">
+    </div>
+    <table id="user-intro-section">
+        <thead>
+        <tr>
+            <th width="30%"></th>
+            <th width="30%"></th>
+            <th width="30%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td colspan="3">
+                <div class="user-head">
+                    <i></i>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <span>&nbsp;&nbsp;</span>
+                <span class="user-nickname">隔壁老王</span>
+                <span class="icons">M</span>
+            </td>
+        </tr>
+        <tr class="user-viewed-liked-clicked-section">
+            <td>
+                <span class="icons fa fa-eye"></span>
+                <span>1000</span>
+            </td>
+            <td>
+                <span class="icons fa fa-heart"></span>
+                <span>1000</span>
+            </td>
+            <td>
+                <span class="icons fa fa-hand-o-up"></span>
+                <span>1000</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="user-self-intro" colspan="3">
+                <span>隔壁老王，是每个人在成长道路中不得不提防的潜在杀手，托妻献子什么的一套一套的~</span>
+            </td>
+        </tr>
+        </tbody>
+
+
+    </table>
+
+    <span class="index-user-link">主页君的主页</span>
+
+    <a href="javascript:UI_animate.show_user_detail();" id="show-user-detail">
+        <span class="fa fa-angle-right"></span>
+    </a>
+
+    <div class="hidden blur" id="user-detail-bg">
+
+    </div>
+
+    <div class="hidden" id="user-detail-section">
+        <table>
+            <thead>
+            <tr>
+                <th width="20%"></th>
+                <th width="80%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>地区</td>
+                <td>新疆维吾尔族自治区乌鲁木齐市，人在北京</td>
+            </tr>
+            <tr>
+                <td>个人</td>
+                <td>21岁 属鸡 天蝎座</td>
+            </tr>
+            <tr>
+                <td>生日</td>
+                <td>保密</td>
+            </tr>
+            <tr>
+                <td>院系</td>
+                <td>一个名字特别长的学院用来测试</td>
+            </tr>
+            <tr>
+                <td>备注</td>
+                <td><p>这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容</p></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        window.UI_animate.show_user_detail = function(){
+            var time_delay = 300;
+            if(document.getElementById("user-detail-bg").classList.contains("hidden") ){
+                //此时处于隐藏状态
+                $("#user-detail-bg").attr("class","blur show");
+                $("#user-detail-section").attr("class","show");
+                //滑动导航栏
+                $("#user-intro-nav-bg").css({
+                    "width":"555px",
+                    "background-position":"-445px 230px"
+                });
+//                    $("#user-intro-nav").css({
+//                        "width":"555px"
+//                    });
+                //切换箭头
+                setTimeout(function(){
+                    $("#show-user-detail").html('<span class="fa fa-angle-left"></span>');
+                },time_delay);
+            }
+            else{
+                //此时处于显示状态
+                $("#user-detail-bg").attr("class","blur hidden");
+                $("#user-detail-section").attr("class","hidden");
+                //滑动导航栏
+                $("#user-intro-nav-bg").css({
+                    "width":"755px",
+                    "background-position":"-245px 230px"
+                });
+                $("#user-intro-nav").css({
+                    "width":"755px"
+                });
+                //切换箭头
+                setTimeout(function(){
+                    $("#show-user-detail").html('<span class="fa fa-angle-right"></span>');
+                },time_delay);
+            }
+        };
+    </script>
+
+
+
+    <i id="user-intro-nav-bg" class="blur"></i>
+    <nav id="user-intro-nav" >
+        <a class="" style="width: 9%;height: 40px;">
+            <span></span>
+        </a>
+        <a href="#" class="active">
+            <span class="icons fa fa-bars"></span>
+            <span>我的新鲜事</span>
+        </a>
+        <a href="#">
+            <span class="icons fa fa-eye"></span>
+            <span>我的学业</span>
+        </a>
+        <a href="#">
+            <span class="icons fa fa-folder"></span>
+            <span>我的收藏</span>
+        </a>
+        <a href="#">
+            <span class="icons fa fa-photo"></span>
+            <span>我的相册</span>
+        </a>
+    </nav>
+</div>
+
+<div class="time-line">
+    <div class="ul">
+    </div>
+    <script src="../js/time_line_controller.js"></script>
+</div>
+
+<div class="user-center-main-container">
+    <div class="left-tools-container">
+        <!--我的关注-->
+        <div class="people-i-follow">
+            <div class="section-title">我的关注（ 25 ）</div>
+            <a href="#" class="user-head person"></a>
+            <a href="#" class="user-head person"></a>
+            <a href="#" class="user-head person"></a>
+            <a href="#" class="user-head group"></a>
+            <a href="#" class="user-head group"></a>
+            <a href="#" class="user-head group"></a>
+            <a href="#" class="card-more" title="更多"></a>
+        </div>
+        <!--日历-->
+        <div class="month-calendar-wrapper">
+            <table class="month-calendar">
+                <thead>
+                <tr>
+                    <th><a href="javascript:window.month_calendar_entity.change_month(-1);" title="上个月"><span class="fa fa-angle-left"></span></a></th>
+                    <th colspan="6" class="month-number"></th>
+                    <th><a href="javascript:window.month_calendar_entity.change_month(1);" title="下个月"><span class="fa fa-angle-right"></span></a></th>
+                </tr>
+                <tr>
+                    <th width="12.5%">周次</th>
+                    <th width="12.5%">周一</th>
+                    <th width="12.5%">周二</th>
+                    <th width="12.5%">周三</th>
+                    <th width="12.5%">周四</th>
+                    <th width="12.5%">周五</th>
+                    <th width="12.5%">周六</th>
+                    <th width="12.5%">周日</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <script src="../js/month_calendar.js"></script>
+        </div>
+        <div class="my-demand-container">
+            <div class="section-title">我的诉求（ 2 ）</div>
+            <section class="my-demands solved">
+                希望新版的ihome能够给力一点~yeah~
+            </section>
+            <section class="my-demands">
+                希望新版的ihome能够更加给力一点~yeah~
+            </section>
+            <a href="#" class="card-more" title="更多"></a>
+        </div>
+        <div class="my-resources-container">
+            <div class="section-title">我的资源（ 7 ）</div>
+        </div>
+    </div>
+
+
+
+    <!--右边是卡片栏目-->
+    <div id="water_fall_wrapper">
+        <div class="card-row" id="row-1">
+            <div class="card pure-text">
+                <time class="publish-time">3/5 13:20</time>
+                <article class="card-text">
+                    五渔村位于意大利的西北部，利古里亚大区(Liguria)拉斯佩齐亚省沿海岸地区，是蒙特罗索、韦尔纳扎、科尔尼利亚、马纳罗拉及里奥马焦雷这五个悬崖边上的村镇的统称。
+                </article>
+                <div class="comment-header">
+                    <span class="fa fa-thumbs-up">30</span>
+                    <span class="fa fa-comment">30</span>
+                </div>
+            </div>
+
+            <div class="card pic-text">
+                <time class="publish-time">3/5 13:20</time>
+                <div class="pic-wrapper">
+                    <img src="../images/banner1.png" alt=""/>
+                </div>
+                <article class="card-text">
+                    凡遇好事的时光甭张狂，张狂过了头后边就有祸事；凡遇到祸事的时光也甭乱套，忍着受着，哪怕咬着牙也得忍着受着，忍过了受过了好事跟着就来了—《白鹿原》
+                </article>
+                <div class="comment-header">
+                    <span class="fa fa-thumbs-up">30</span>
+                    <span class="fa fa-comment">30</span>
+                </div>
+            </div>
+
+            <div class="card pic-text">
+                <time class="publish-time">3/5 13:20</time>
+                <div class="pic-wrapper">
+                    <img src="../images/banner2.png" alt=""/>
+                </div>
+                <article class="card-text">
+                    凡遇好事的时光甭张狂，张狂过了头后边就有祸事；凡遇到祸事的时光也甭乱套，忍着受着，哪怕咬着牙也得忍着受着，忍过了受过了好事跟着就来了—《白鹿原》
+                </article>
+                <div class="comment-header">
+                    <span class="fa fa-thumbs-up">30</span>
+                    <span class="fa fa-comment">30</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-row" id="row-2">
+
+            <div class="card long-pic-text">
+                <time class="publish-time">3/5 13:20</time>
+                <div class="pic-wrapper">
+                    <img src="../images/vs.jpg" alt=""/>
+                </div>
+                <article class="card-text">
+                    She surrendered her broken body for an imperishable form of spirit energy, driven by vengeance, capable of doing great damage in the material plane.
+                </article>
+                <div class="comment-header">
+                    <span class="fa fa-thumbs-up">30</span>
+                    <span class="fa fa-comment">30</span>
+                </div>
+            </div>
+
+            <div class="card pure-text">
+                <time class="publish-time">3/5 13:20</time>
+                <article class="card-text">
+                    日前，阿里健康APP新版本接入了新浪爱问医生服务，印证了近期传出阿里健康与新浪微博和爱问医生牵手的消息。
+                </article>
+                <div class="comment-header">
+                    <span class="fa fa-thumbs-up">30</span>
+                    <span class="fa fa-comment">30</span>
+                </div>
+            </div>
+
+            <div class="card pure-text">
+                <time class="publish-time">3/5 13:20</time>
+                <article class="card-text">
+                    与网络中心老师们开会，好紧张。。。
+                </article>
+                <div class="comment-header">
+                    <span class="fa fa-thumbs-up">30</span>
+                    <span class="fa fa-comment">30</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+</body>
+</html>

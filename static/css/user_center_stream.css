@@ -3,7 +3,8 @@
     position: relative;
     vertical-align: top;
     background: transparent;
-    width:632px;
+    width:637px;
+    margin-left: 24px;
     /*height: 100%;*/
     height: auto;
     transition: height 0.3s ease, width 0.3s ease;
@@ -16,11 +17,17 @@
     float: left;
     width: 306px;
     height: auto;
-    margin-left: 10px;
+    margin-left: 15px;
     margin-top: -10px;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+}
+.card-row:first-child {
+    margin-left: 10px;
+}
+.card-row .card:first-child {
+    margin-top: 10px;
 }
 .card{
     display: block;
@@ -28,9 +35,10 @@
     width: 306px;
     height: auto;
     z-index: 15;
-    margin-top: 10px;
-    border-radius: 3px;
+    margin-top: 15px;
+    border-radius: 2px;
     overflow: hidden;
+    background-color: #AFDEEC;
     font-family: "微软雅黑", "Microsoft Yahei", Arial, Helvetica, sans-serif, "宋体";
     color:#373737;
     box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
@@ -40,18 +48,49 @@
     display: block;
     position: absolute;
     width: 100%;
-    background-color: rgba(0, 0, 0, .3);
-    font-size: 6pt;
+    background-color: rgba(0, 0, 0, .2);
+    font-size: 8pt;
     color: rgba(255, 255, 255, .9);
-    height: 15px;
-    line-height: 15px;
+    text-indent: 10px;
+    height: 20px;
+    line-height: 20px;
+    z-index: 10000;
 }
 .publish-time:before {
     content: "发表于";
     display: inline;
     text-indent: 10px;
 }
-
+.card-text {
+    display: block;
+    position: relative;
+    width: 100%;
+    line-height: 1.4em;
+    font-size: 12px;
+    box-sizing: border-box;
+    padding: 5px;
+    overflow: hidden;
+    text-align: justify;
+}
+.comment-header {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: right;
+}
+.comment-header .fa {
+    display: inline;
+    margin-left: 10px;
+    margin-right: 5px;
+    font-size: 13px;
+    text-indent: 1em;
+    color:#737373;
+}
+.comment-header .fa:before {
+    margin-right: 5px;
+}
 /*纯文本卡片*/
 
 .card.pure-text {
@@ -62,4 +101,64 @@
 .card.pure-text .publish-time{
     display: block;
 }
+.card.pure-text .card-text {
+    height: 70px;
+    margin-top: 20px;
+}
 
+/*常规图文混排*/
+.card.pic-text {
+    display: block;
+    height: 235px;
+}
+.card.pic-text .pic-wrapper {
+    display: block;
+    position: relative;
+    height: 168px;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+}
+.card.pic-text .pic-wrapper img {
+    display: inline;
+    position: relative;
+    margin: auto;
+    width:auto;
+    height: 100%;
+    z-index: 100;
+}
+.card.pic-text .publish-time {
+    top:148px;
+}
+.card.pic-text .card-text {
+    height: 47px;
+    line-height: 1.2em;
+}
+/*长图文混排*/
+.card.long-pic-text {
+    display: block;
+    height: 359px;
+}
+.card.long-pic-text .pic-wrapper {
+    display: block;
+    position: relative;
+    height: 293px;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+}
+.card.long-pic-text .pic-wrapper img {
+    display: inline;
+    position: relative;
+    margin: auto;
+    min-width:306px;
+    max-height: 100%;
+    z-index: 100;
+}
+.card.long-pic-text .publish-time {
+    top:273px;
+}
+.card.long-pic-text .card-text {
+    height: 47px;
+    line-height: 1.2em;
+}

@@ -14,7 +14,22 @@
     <link rel="stylesheet" href="../css/animate.css"/>
     <script src="../js/lib/jquery-1.11.2.min.js"></script>
     <script src="../js/lib/iPtdqx.js"></script>
+    <style>
+        input:-moz-placeholder,
+        textarea:-moz-placeholder {
+            color: #494949;
+        }
 
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder {
+            color: #494949;
+        }
+
+        input::-webkit-input-placeholder,
+        textarea::-webkit-input-placeholder {
+            color: #494949;
+        }
+    </style>
 
 </head>
 <body onResize="set_mov_size();">
@@ -92,27 +107,38 @@
     </div>
 </body>
 <script>
-
+    $(document).ready(function(){
+        set_mov_size();
+    });
     var card1 = document.getElementById('login-tp');
     var card2 = document.getElementById('register');
     var card3 = document.getElementById('password-back');
     var mov_bg = document.getElementById('mov-bg');
 
+
     function set_mov_size(){
 
-        var window_x = document.body.clientWidth;
-        var window_y = document.body.clientHeight;
+        var window_x = $(window).innerWidth();
+        var window_y = $(window).innerHeight();
+        var tp_top = parseInt(window_y/2 - 240);
+        $(".card").css({
+            "margin-top":tp_top
+        });
         var mov_x    = 1920;
         var mov_y    = 1080;
         var rate     = mov_x/mov_y;
         var v = document.getElementsByTagName("video")[0];
         //过宽，高度溢出，宽度撑满,竖直居中
         if(window_x/window_y > rate){
-            var y = parseInt(window_x/rate);
-            var y_offset = - parseInt((y - window_y)/2);
+            var x = window_x;
+            var y = x/rate;
+            var y_offset = -(y - window_y)/2;
             console.log("y_offset  "+y_offset);
-            mov_bg._css("width",(window_x+"px"))._css("height",y+"px")._css("top",y_offset+"px");
-
+            mov_bg._css("width",(x+"px"))._css("height",y+"px")._css("top",y_offset+"px");
+            $("video").css({
+                "width":x,
+                "height":y
+            });
 //            $("#mov-bg").css({
 //                "width":window_x,
 //                "height":y,
@@ -121,16 +147,22 @@
         }
         //过窄，宽度溢出，高度撑满,竖直居中
         else{
-            var x = parseInt(window_y*rate);
-            var x_offset = - parseInt((x - window_x)/2);
-            mov_bg._css("width",(x+"px"))._css("height",window_y+"px")._css("left",x_offset+"px");
+            var y = window_y;
+            var x = y*rate;
+            var x_offset = - ((x - window_x)/2);
+            mov_bg._css("width",(x+"px"))._css("height",y+"px")._css("left",x_offset+"px");
             console.log("x_offset  "+x_offset);
+            $("video").css({
+                "width":x,
+                "height":y
+            });
 //            $("#mov-bg").css({
 //                "width":x,
 //                "height":window_y,
 //                "left":x_offset
 //            });
         }
+
     }
     //翻牌用~
     function convert(from,to) {

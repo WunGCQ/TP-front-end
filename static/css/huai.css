@@ -66,7 +66,7 @@ div.ui-loader.ui-corner-all.ui-body-a.ui-loader-default.ui-loader-fakefix{
     height: 100%;
     background-color: rgba(0, 0, 0, .7);
     z-index: 20;
-    transition: all ease 1s 0.5s;
+    transition: all ease 5s 0.2s;
 }
 .pages .intro{
     display: block;

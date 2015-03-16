@@ -13,12 +13,12 @@
     background-size: 1000px auto;
     background-position: 0 400px;/*选择背景向下偏移400px是考虑到多数图片的中下部是主要内容部分*/
     font-family: "Microsoft YaHei","Microsoft Yahei","微软雅黑",Arial,Helvetica Neue, Courier;
-    font-size: 10pt;
+    font-size: 12px;
     z-index: 10;
 
 }
 #user-info-block .icons {
-    font-size: 12pt;
+    font-size: 14px;
     cursor: pointer;
 }
 .blur {
@@ -80,7 +80,7 @@
     background-image: url(../images/hpcp.jpg);
 }
 #user-intro-section .user-nickname {
-    font-size: 12pt;
+    font-size: 14px;
 }
 #user-intro-section td{
     vertical-align: top;
@@ -90,7 +90,7 @@
     height: 60px;
     width: 100%;
     padding: 2px 20px;
-    font-size: 10pt;
+    font-size: 12px;
 }
 #user-intro-section .user-self-intro span{
     display: block;
@@ -104,7 +104,7 @@
 
 #user-intro-section span {
     color: rgba(255, 255, 255, .94);
-    font-size: 10pt;
+    font-size: 12px;
 }
 
 #show-user-detail {
@@ -152,13 +152,13 @@
 #user-detail-section {
     display: block;
     position: absolute;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
     top:0;
     left: 245px;
     height: 100%;
     width: 200px;
     background-color: rgba(255, 255, 255, .1);
-    font-size: 8pt;
+    font-size: 10px;
     z-index: 20;
     transition: opacity linear 0.2s 0.2s;
 }
@@ -213,8 +213,8 @@
     display: inline-block;
     position: relative;
     vertical-align: bottom;
-    width: 25%;
-    font-size: 12pt;
+    width: 22.15%;
+    font-size: 14px;
     text-align: center;
     color: rgba(255, 255, 255, .5);
     background-color: rgba(0, 0, 0, .25);

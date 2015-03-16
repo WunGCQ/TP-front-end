@@ -87,7 +87,7 @@ cookie_methods.delCookie = function(name) {
     if(cval!=null) document.cookie= name + "="+cval+";expires="+exp.toGMTString();
 };
 //使用示例
-cookie_methods.set_cookie("name","hayden");
+
 //alert(cookie_methods.get_cookie("name"));
 
 function load_picture(src){

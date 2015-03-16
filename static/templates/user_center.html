@@ -51,7 +51,7 @@
 
 
 </head>
-<body>
+<body onResize="set_logo_box();">
     <header id="header">
         <a href="/" id="logo-box">
             <img src="../images/home.jpg" alt=""/>
@@ -76,6 +76,21 @@
         <a id="bar-message" class="bar-menu bar-have-message" href="messages/" title="消息">
             <span class="fa fa-bell"></span>
         </a>
+        <script>
+            function set_logo_box(){
+                var logo = document.getElementById("logo-box");
+                console.log(window.innerWidth);
+                if(window.innerWidth<=1000) {
+                    logo.style["left"] = "0px";
+                }else{
+                    $(logo).css({
+                        'left':'calc(50% - 500px)'
+                    })
+                }
+            }
+            set_logo_box();
+            window.addEventListener("resize",set_logo_box);
+        </script>
     </header>
 
     <div id="user-info-block">
@@ -165,7 +180,7 @@
                 </tr>
                 <tr>
                     <td>备注</td>
-                    <td><p>这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容。</p></td>
+                    <td><p>这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容</p></td>
                 </tr>
                 </tbody>
             </table>
@@ -183,9 +198,9 @@
                         "width":"555px",
                         "background-position":"-445px 230px"
                     });
-                    $("#user-intro-nav").css({
-                        "width":"555px"
-                    });
+//                    $("#user-intro-nav").css({
+//                        "width":"555px"
+//                    });
                     //切换箭头
                     setTimeout(function(){
                         $("#show-user-detail").html('<span class="fa fa-angle-left"></span>');
@@ -215,6 +230,9 @@
 
         <i id="user-intro-nav-bg" class="blur"></i>
         <nav id="user-intro-nav" >
+            <a class="" style="width: 11.4%;height: 40px;">
+                <span></span>
+            </a>
             <a href="#" class="active">
                 <span class="icons fa fa-bars"></span>
                 <span>我的新鲜事</span>
@@ -301,11 +319,95 @@
             <div class="card-row" id="row-1">
                 <div class="card pure-text">
                     <time class="publish-time">3/5 13:20</time>
+                    <article class="card-text">
+                        五渔村位于意大利的西北部，利古里亚大区(Liguria)拉斯佩齐亚省沿海岸地区，是蒙特罗索、韦尔纳扎、科尔尼利亚、马纳罗拉及里奥马焦雷这五个悬崖边上的村镇的统称。
+                    </article>
+                    <div class="comment-header">
+                        <span class="fa fa-thumbs-up">30</span>
+                        <span class="fa fa-comment">30</span>
+                    </div>
                 </div>
-                <div class="card pure-pic"></div>
+
+                <div class="card pic-text">
+                    <time class="publish-time">3/5 13:20</time>
+                    <div class="pic-wrapper">
+                        <img src="../images/banner1.png" alt=""/>
+                    </div>
+                    <article class="card-text">
+                        凡遇好事的时光甭张狂，张狂过了头后边就有祸事；凡遇到祸事的时光也甭乱套，忍着受着，哪怕咬着牙也得忍着受着，忍过了受过了好事跟着就来了—《白鹿原》
+                    </article>
+                    <div class="comment-header">
+                        <span class="fa fa-thumbs-up">30</span>
+                        <span class="fa fa-comment">30</span>
+                    </div>
+                </div>
+
+                <div class="card pic-text">
+                    <time class="publish-time">3/5 13:20</time>
+                    <div class="pic-wrapper">
+                        <img src="../images/banner2.png" alt=""/>
+                    </div>
+                    <article class="card-text">
+                        凡遇好事的时光甭张狂，张狂过了头后边就有祸事；凡遇到祸事的时光也甭乱套，忍着受着，哪怕咬着牙也得忍着受着，忍过了受过了好事跟着就来了—《白鹿原》
+                    </article>
+                    <div class="comment-header">
+                        <span class="fa fa-thumbs-up">30</span>
+                        <span class="fa fa-comment">30</span>
+                    </div>
+                </div>
+
             </div>
+
             <div class="card-row" id="row-2">
-                <div class="card-"></div>
+
+                <div class="card long-pic-text">
+                    <time class="publish-time">3/5 13:20</time>
+                    <div class="pic-wrapper">
+                        <img src="../images/vs.jpg" alt=""/>
+                    </div>
+                    <article class="card-text">
+                         She surrendered her broken body for an imperishable form of spirit energy, driven by vengeance, capable of doing great damage in the material plane.
+                    </article>
+                    <div class="comment-header">
+                        <span class="fa fa-thumbs-up">30</span>
+                        <span class="fa fa-comment">30</span>
+                    </div>
+                </div>
+
+                <div class="card pure-text">
+                    <time class="publish-time">3/5 13:20</time>
+                    <article class="card-text">
+                        日前，阿里健康APP新版本接入了新浪爱问医生服务，印证了近期传出阿里健康与新浪微博和爱问医生牵手的消息。
+                    </article>
+                    <div class="comment-header">
+                        <span class="fa fa-thumbs-up">30</span>
+                        <span class="fa fa-comment">30</span>
+                    </div>
+                </div>
+
+                <div class="card pure-text">
+                    <time class="publish-time">3/5 13:20</time>
+                    <article class="card-text">
+                        夕阳沉入黑暗之中
+                        /光明无影无踪
+                        /满天的星无边的沉默
+                        /不停的看着我
+                        /又想起那神秘的传说
+                        /它总吸引着我
+                        /吸引着我化作一首歌
+                        /从那山坡经过
+                        /悉悉之声我已听见
+                        /你就在我的身边
+                        /我怎能知道时间
+                        /早在过去已将我欺骗
+                        /百花已无尽的盛开
+                    </article>
+                    <div class="comment-header">
+                        <span class="fa fa-thumbs-up">30</span>
+                        <span class="fa fa-comment">30</span>
+                    </div>
+                </div>
+
             </div>
         </div>
 

@@ -8,7 +8,7 @@
     display: block;
     width: 100%;
     margin-bottom: 5px;
-    font-size: 12pt;
+    font-size: 14px;
 }
 
 .card-more {
@@ -69,11 +69,12 @@
     transition: all ease 0.3s;
     background-image: url(../images/hpcp.jpg);
     background-size: 100% 100%;
+    font-size:7px !important;
 }
 .people-i-follow .user-head.person:after,.people-i-follow .user-head.group:after {
     display: block;
     position: absolute;
-    font-size:7px;
+    font-size:7px !important;
     color:#fff;
     background-color: #000;
     padding: 1px 2px;
@@ -113,6 +114,9 @@
 .month-calendar tbody tr>td:first-child, .month-calendar thead tr:last-child th:first-child {
     border-left: none;
 }
+.month-calendar tbody td:hover:not(.today) {
+    background-color: rgba(255, 255, 255, .2);
+}
 .month-calendar tbody tr>td:last-child, .month-calendar thead tr:last-child th:last-child {
     border-right: none;
 }
@@ -123,7 +127,7 @@
     height: 40px;
     background-color: #6ed4c6;
     color: #fff;
-    font-size: 12pt;
+    font-size: 14px;
 }
 .month-calendar thead>tr:last-child {
     height: 30px;
