@@ -117,8 +117,8 @@
         <tr>
             <td colspan="3">
                 <span>&nbsp;&nbsp;</span>
-                <span class="user-nickname">隔壁老王</span>
-                <span class="icons">M</span>
+                <span class="user-nickname">主页君</span>
+                <span class="icons">男</span>
             </td>
         </tr>
         <tr class="user-viewed-liked-clicked-section">
@@ -137,7 +137,7 @@
         </tr>
         <tr>
             <td class="user-self-intro" colspan="3">
-                <span>隔壁老王，是每个人在成长道路中不得不提防的潜在杀手，托妻献子什么的一套一套的~</span>
+                <span>仿佛记忆的彼岸日已西倾，火红的暮云泛起灰黄。大海睡了吗？青花鱼年沉沦的梦已飘零。</span>
             </td>
         </tr>
         </tbody>
@@ -166,7 +166,7 @@
             <tbody>
             <tr>
                 <td>地区</td>
-                <td>新疆维吾尔族自治区乌鲁木齐市，人在北京</td>
+                <td>中国 北京</td>
             </tr>
             <tr>
                 <td>个人</td>
@@ -178,11 +178,11 @@
             </tr>
             <tr>
                 <td>院系</td>
-                <td>一个名字特别长的学院用来测试</td>
+                <td>你猜</td>
             </tr>
             <tr>
                 <td>备注</td>
-                <td><p>这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容，这里是备注内容</p></td>
+                <td><p>妮可妮可妮</p></td>
             </tr>
             </tbody>
         </table>
@@ -200,9 +200,9 @@
                     "width":"555px",
                     "background-position":"-445px 230px"
                 });
-//                    $("#user-intro-nav").css({
-//                        "width":"555px"
-//                    });
+                $("#user-intro-nav").css({
+                    "width":"555px"
+                });
                 //切换箭头
                 setTimeout(function(){
                     $("#show-user-detail").html('<span class="fa fa-angle-left"></span>');
@@ -235,11 +235,11 @@
         <a class="" style="width: 11.4%;height: 40px;">
             <span></span>
         </a>
-        <a href="#">
+        <a href="http://withinyou.cn/user_center.html">
             <span class="icons fa fa-bars"></span>
             <span>我的新鲜事</span>
         </a>
-        <a href="#">
+        <a href="http://withinyou.cn/schoolwork.html">
             <span class="icons fa fa-eye"></span>
             <span>我的学业</span>
         </a>
@@ -247,7 +247,7 @@
             <span class="icons fa fa-folder"></span>
             <span>我的收藏</span>
         </a>
-        <a href="#" class="active">
+        <a href="http://withinyou.cn/album.html" class="active">
             <span class="icons fa fa-photo"></span>
             <span>我的相册</span>
         </a>
@@ -318,16 +318,16 @@
 
     <!--右边是卡片栏目-->
     <div id="water_fall_wrapper">
-        <div class="images" data-src = "banner1.png">
+        <div class="images" data-src = "1.jpg">
             <article>
-                <p>图片1简介</p>
-                <time>2015/3/15</time>
+                <p>怀骑士在法国，与法国外交部长谈笑风生</p>
+                <time>2013/7</time>
             </article>
         </div>
-        <div class="images" data-src = "banner2.png">
+        <div class="images" data-src = "3.jpg">
             <article>
-                <p>图片2简介</p>
-                <time>2015/3/15</time>
+                <p>怀骑士买买买，亲自支持同学们的活动~</p>
+                <time>2014/4</time>
             </article>
         </div>
         <div class="images" data-src = "aaa.jpeg">
@@ -377,15 +377,35 @@
 
 
 </div>
+<div class="full-screen">
+
+</div>
 
 
 
-<script>
+<script type="text/javascript">
     $(document).ready(function(){
-        load_templates();
+        load_pics();
+        $("#water_fall_wrapper").delegate('.images','click',function(){
+            show_big_image(this);
+        });
+
+        $(".full-screen").click(function(ev){
+            var evt = ev||window.event;
+            if(evt.target.nodeName == 'DIV'){
+                hide_full_screen();
+            }else if(evt.target.nodeName=="IMG"){
+                var src = evt.target.getAttribute("src");
+                window.open(src);
+            }else if(evt.target.nodeName=='SPAN'){
+                if(evt.target.classList.contains("close")){
+                    hide_full_screen();
+                }
+            }
+        });
     });
 
-    function load_templates(){
+    function load_pics(){
         var image_wrappers = document.getElementById("water_fall_wrapper");
         var images = image_wrappers.getElementsByClassName("images");
         for(var i=0;i<images.length; i++){
@@ -395,6 +415,64 @@
             });
         }
     }
+    function show_big_image(obj){
+        var image = obj;
+        var bg_str = $(obj).css("background-image");
+        var bg_image = bg_str.slice(4,-1);
+        var show_image = new Image();
+        show_image.src = bg_image;
+        var width = show_image.width;
+        var height = show_image.height;
+        var window_x = $(window).innerWidth();
+        var window_y = $(window).innerHeight();
+        var x = window_x * 0.8;
+        var y = window_y * 0.8;
+        if(width<x){
+            x = width;
+        }
+        if(height<y){
+            y=height;
+        }
+
+        show_full_screen(function(){
+            $(".full-screen").append(show_image);
+            $(show_image).css({
+                "max-width":x,
+                "max-height":y
+            });
+            var actual_height = parseInt($(show_image).css("height"));
+            var actual_width = parseInt($(show_image).css("width"));
+            var top_offset = parseInt((window_y-actual_height)/2);
+            var right_offset = parseInt((window_x-actual_width-30)/2);
+            var str = '<span class="close" style="top:'+(top_offset-14)+'px;right:'+(right_offset)+'px;">X</span>';
+
+            $(show_image).css({
+                "margin-top":top_offset
+            });
+            setTimeout(function(){$(".full-screen").append(str);},600);
+            $(show_image).css({
+                "opacity":1
+            });
+        });
+
+    }
+    function show_full_screen(callback){
+        $(".full-screen").fadeIn(500);
+
+        if(typeof callback == "function"){
+            $(".full-screen").css({
+                'display':'table'
+            });
+            setTimeout(function(){
+                callback();
+            },500);
+        }
+    }
+    function hide_full_screen(){
+        $(".full-screen").fadeOut(500);
+        $(".full-screen").html("");
+    }
+
 </script>
 </body>
 </html>

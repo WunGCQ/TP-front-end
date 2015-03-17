@@ -47,3 +47,43 @@
 .images article:hover>p, .images article:hover>time {
     opacity: 1;
 }
+.full-screen {
+    display: table;
+    display: none;
+    top:0;
+    left:0;
+    position: fixed;
+    background-color: rgba(0, 0, 0,.5);
+    width: 100%;
+    height: auto;
+    overflow-y: scroll;
+    min-height: 100vh;
+    z-index: 300000;
+}
+.full-screen img{
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+    opacity: 0;
+    transition: all ease .5s .1s;
+    cursor: pointer;
+    box-shadow: 0 0 20px 1px rgba(255,255,255,.3);
+}
+.full-screen .close {
+    display: block;
+    position: absolute;
+    z-index: 400000;
+    background-color: #fff;
+    color: #000;
+    font-size: 20px !important;
+    font-weight: normal;
+    padding: 3px 7px;
+    border-radius: 100%;
+    opacity: 0.5;
+    transition: all ease .5s;
+    cursor: pointer;
+    font-family: Arial,monospace;
+}
+.full-screen .close:hover{
+    opacity: 1;
+}
