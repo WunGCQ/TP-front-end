@@ -4,9 +4,9 @@
 }
 .time-line {
     display: block;
-    position: absolute;
+    position: fixed;
     left:calc(500px + 50%);
-    top: 250px;
+    top: 150px;
     margin: 0;
     width: auto;
     height: auto;
