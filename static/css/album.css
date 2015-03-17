@@ -59,6 +59,7 @@
     overflow-y: scroll;
     min-height: 100vh;
     z-index: 300000;
+    text-align: center;
 }
 .full-screen img{
     display: table-cell;

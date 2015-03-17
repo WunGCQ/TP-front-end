@@ -418,6 +418,7 @@
     function show_big_image(obj){
         var image = obj;
         var bg_str = $(obj).css("background-image");
+        bg_str = bg_str.replace(/"/g,"");
         var bg_image = bg_str.slice(4,-1);
         var show_image = new Image();
         show_image.src = bg_image;
@@ -425,6 +426,9 @@
         var height = show_image.height;
         var window_x = $(window).innerWidth();
         var window_y = $(window).innerHeight();
+        $(".full-screen").css({
+            "height":window_y
+        });
         var x = window_x * 0.8;
         var y = window_y * 0.8;
         if(width<x){
