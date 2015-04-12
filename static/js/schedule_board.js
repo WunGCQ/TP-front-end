@@ -4,7 +4,7 @@
 /*备忘录控件*/
 function schedule_board() {
     window.calendar_control = new calendar();
-    this.today_lunar_date_string = get_CN_date();
+    this.today_lunar_date_string = get_CN_date(new Date());
     this.schedule_borad_box = document.getElementById("schedule-board-box");
     this.schedule_board_title_right_box = document.getElementById("schedule-board-title-right-box");
 
