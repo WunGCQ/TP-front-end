@@ -1,33 +1,33 @@
 window.RegisterModel = function(){
     return this;
 };
-RegisterModel.prototype.dataCheck = function(data){
+RegisterModel.prototype.dataCheck = function(data, errorAlert){
     var rgExp, judge;
     rgExp = rgExpVerifyTable.username;
     if(!rgExp.exec(data.username)) {
-        RegisterModel.prototype.errorAlert("用户名格式错误");
+        errorAlert("用户名格式错误");
         return false;
     }
     rgExp = rgExpVerifyTable.passwd;
     if(!rgExp.exec(data.passwd)) {
-        RegisterModel.prototype.errorAlert("注册密码不能少于8位");
+        errorAlert("注册密码不能少于8位");
         return false;
     }
     rgExp = rgExpVerifyTable.card_id;
     if(!rgExp.exec(data.card_id)) {
-        RegisterModel.prototype.errorAlert("学号格式错误");
+        errorAlert("学号格式错误");
         return false;
     }
     rgExp = rgExpVerifyTable.card_passwd;
     if(!rgExp.exec(data.card_passwd)) {
-        RegisterModel.prototype.errorAlert("一卡通密码为六位数字");
+        errorAlert("一卡通密码为六位数字");
         return false;
     }
     return true;
 }
 
 RegisterModel.prototype.register = function(data, errorAlert){
-    if(RegisterModel.prototype.dataCheck(data)){
+    if(RegisterModel.prototype.dataCheck(data, errorAlert)){
         $.ajax({
             type: 'post',
             url: getBase()+'/register',
