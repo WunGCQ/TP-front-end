@@ -1,16 +1,6 @@
 window.RegisterModel = function(){
     return this;
 };
-RegisterModel.prototype.getData=function(){
-    var inputs = $('#register-one-card input');
-    var data = {
-        "username": inputs[0].value,
-        "passwd": inputs[1].value,
-        "card_id": inputs[2].value,
-        "card_passwd": inputs[3].value
-    }
-    return data;
-}
 RegisterModel.prototype.dataCheck = function(data){
     var rgExp, judge;
     rgExp = rgExpVerifyTable.username;
@@ -35,13 +25,8 @@ RegisterModel.prototype.dataCheck = function(data){
     }
     return true;
 }
-RegisterModel.prototype.errorAlert = function(error){
-    //错误提示，应该是个模态框block一下比较好吧，太麻烦，不写了等着ui写出来再加上吧
-    alert(error);
-}
 
-RegisterModel.prototype.register = function(){
-    var data = RegisterModel.prototype.getData();
+RegisterModel.prototype.register = function(data, errorAlert){
     if(RegisterModel.prototype.dataCheck(data)){
         $.ajax({
             type: 'post',
@@ -60,17 +45,16 @@ RegisterModel.prototype.register = function(){
             },
             error: function(xhr,m,t){
                 var result = eval("("+xhr.responseText+")");
-                RegisterModel.prototype.errorAlert(result.error.message);
+                errorAlert(result.error.message);
             }
         });
     }
 }
 
-RegisterModel.prototype.usernameLoseFocus = function(element){
-    var username = element.val();
+RegisterModel.prototype.usernameLoseFocus = function(username, errorAlert){
     var rgExp = rgExpVerifyTable.username;
     if(!rgExp.exec(username)) {
-        RegisterModel.prototype.errorAlert("用户名格式错误，应不超过三十位");
+        errorAlert("用户名格式错误，应不超过三十位");
         return;
     }
     $.ajax({
@@ -86,17 +70,16 @@ RegisterModel.prototype.usernameLoseFocus = function(element){
         //     else console.log("???");
         // },
         error: function(data){
-            RegisterModel.prototype.errorAlert("用户名已被注册");
+            errorAlert("用户名已被注册");
         }
     });
 };
 
-RegisterModel.prototype.cardIdLoseFocus = function(element){
-    var card_id = element.val();
+RegisterModel.prototype.cardIdLoseFocus = function(card_id, errorAlert){
     var rgExp = rgExpVerifyTable.card_id;
     console.log(rgExpVerifyTable.card_id);
     if(!rgExp.exec(card_id)) {
-        RegisterModel.prototype.errorAlert("学号格式错误");
+        errorAlert("学号格式错误");
         return;
     }
     $.ajax({
@@ -112,8 +95,7 @@ RegisterModel.prototype.cardIdLoseFocus = function(element){
         //     else console.log("???");
         // },
         error: function(data){
-            RegisterModel.prototype.errorAlert("学号已被注册");
+            errorAlert("学号已被注册");
         }
     });
 };
-

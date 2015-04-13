@@ -48,11 +48,17 @@
 
     <script src="../js/lib/base.js"></script>
     <script src="../js/lib/juicer.js"></script>
+    <script src="../js/Controllers/AuthorizationController.js"></script>
+    <script src="../js/Controllers/CardsController.js"></script>
+    <script src="../js/Controllers/ScheduleController.js"></script>
     <script src="../js/Models/ScheduleModel.js"></script>
     <script src="../js/Models/CardsModel.js"></script>
     <script src="../js/Models/AuthorizationModel.js"></script>
     <script src="../js/index.js"></script>
 
+    <style type="text/css">
+        .tpl{display: none;}
+    </style>
 </head>
 <body onload="exam()">
     <header id="header">
@@ -234,7 +240,7 @@
 
 
 
-<script id="schedule_tpl" type="text/template">
+<div class="tpl" id="schedule_tpl" type="text/template">
 <ul style="margin-top: 0px">
 <!--
 {@helper choose_color}
@@ -288,8 +294,8 @@
 </li> 
 {@/each}
 </ul>
-</script>
-<script id="function_tpl" type="text/template">
+</div>
+<div class="tpl" id="function_tpl" type="text/template">
 <!--
 {@helper getDate}
 function(date){
@@ -305,8 +311,8 @@ function(date){
 }
 {@/helper}
 -->
-</script>
-<script id="article_picture_tpl" type="text/template">
+</div>
+<div  class="tpl" id="article_picture_tpl">
     <div class="card news-card">
         <div class="news-header">
             <span class="news-head"></span>
@@ -351,8 +357,8 @@ function(date){
         </table>
         <i class="card-more" title="更多" href="${comments}"></i>
     </div>
-</script>
-<script id="activity_tpl" type="text/template">
+</div>
+<div id="activity_tpl" type="text/template" class="tpl">
     <div class="card activity-card">
         <div class="card-header">
             <div class="activity-card-icon">
@@ -372,8 +378,8 @@ function(date){
             {@/each}
         </dl>
     </div>
-</script>
-<script id="inform_tpl" type="text/template">
+</div>
+<div id="inform_tpl" type="text/template" class="tpl">
     <div class="card announcement-card">
         <div class="card-header">
             <span class="fa fa-calendar"></span>
@@ -401,8 +407,8 @@ function(date){
         </section>
         {@/each}
     </div>
-</script>
-<script id="article_tpl" type="text/template">
+</div>
+<div id="article_tpl" type="text/template" class="tpl">
     <div class="card news-card">
         <div class="news-header">
             <span class="news-head"></span>
@@ -444,8 +450,8 @@ function(date){
         </table>
         <i class="card-more" title="更多" href="${comments}"></i>
     </div>
-</script>
-<script id="todo_tpl" type="text/template">
+</div>
+<div id="todo_tpl" type="text/template" class="tpl">
     <div class="card todo-card">
         <div class="card-header">
             <span class="fa fa-bell"></span>
@@ -474,7 +480,7 @@ function(date){
         </div>
         {@/each}
     </div>
-</script>
+</div>
 </body>
 <script>
 //    var calendar_control = new calendar();这个全局变量会在下面的控件中引入

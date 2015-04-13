@@ -1,13 +1,16 @@
 $(function(){
-    authorization_i = new AuthorizationModel();
-    if(authorization_i.tokenTest()) {
+    var authorization_i = new AuthorizationModel();
+    var anthorization_controller = new AuthorizationController();
+    if(authorization_i.tokenTest(anthorization_controller.errorAlert)) {
         var schedule_i = new ScheduleModel();
         var cards_i = new CardsModel();
-        cards_i.getCards();
-        schedule_i.get_schedule(new Date());
+        var schedule_controller = new ScheduleController();
+        var cards_controller = new CardsController();
+        cards_i.getCards(cards_controller.fillHtml, cards_controller.errorAlert);
+        schedule_i.get_schedule(new Date(), schedule_controller.fillHtml, schedule_controller.errorAlert);
         $('.day-box').click(function(){
-            schedule_i.get_schedule(new Date($(this).attr("data-date")));
-            schedule_i.change(this);
+            schedule_i.get_schedule(new Date($(this).attr("data-date")), schedule_controller.fillHtml, schedule_controller.errorAlert);
+            schedule_controller.change(this);
         });
     }
 });

@@ -1,23 +1,7 @@
 window.LoginModel = function(){
     return this;
 }
-
-LoginModel.prototype.getData=function(){
-    var inputs = $('#login-one-card input');
-    var data = {
-        "username": inputs[0].value,
-        "passwd": inputs[1].value,
-    }
-    return data;
-}
-
-LoginModel.prototype.errorAlert = function(error){
-    //错误提示，应该是个模态框block一下比较好吧，太麻烦，不写了等着ui写出来再加上吧
-    alert(error);
-}
-
-LoginModel.prototype.login = function(){
-    var data = LoginModel.prototype.getData();
+LoginModel.prototype.login = function(data, errorAlert){
     $.ajax({
             type: 'post',
             url: getBase()+'/login',
@@ -34,7 +18,7 @@ LoginModel.prototype.login = function(){
             },
             error: function(xhr,m,t){
                 var result = eval("("+xhr.responseText+")");
-                LoginModel.prototype.errorAlert(result.error.message);
+                errorAlert(result.error.message);
             }
         });
 }
