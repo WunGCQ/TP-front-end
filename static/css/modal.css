@@ -89,7 +89,9 @@
     padding:15px 10px 15px 15px;
 }
 article img {
-    max-width: 660px;
+    display: inline;
+    max-width: 470px;
+    text-align: center;
     margin:10px auto;
 }
 
@@ -166,9 +168,14 @@ article img {
     text-indent: 1.9em;
     margin-top: 0.5em;
 }
+.modal-box article .img-wrapper {
+    width: 100%;
+    text-align: center;
+}
 .modal-box .main-content .content-icon-box {
     margin-top: 10px;
     font-size: 14px;
+    padding-bottom: 15px;
 }
 .modal-box .main-content .content-icon-box a{
     color: #999;
