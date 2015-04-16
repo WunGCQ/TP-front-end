@@ -584,8 +584,9 @@
 
 
 </body>
-<div class="modal-bg">
+<div class="modal modal-news" style="display: none">
     <div class="modal-wrapper">
+        <div class="modal-bg" onclick="window.news_modal_entity.hide()"></div>
         <div  class="modal-box">
             <table>
                 <thead>
@@ -602,8 +603,8 @@
                                 <a href="#" class="user-head"></a>
                                 <a href="#" class="username">用户名</a>
                                 <a href="#" class="collection">
-                                    <span class="fa fa-heart"></span>
-                                    <span>收藏</span>
+                                    <!--span class="fa fa-heart"></span>
+                                    <span>收藏</span-->
                                 </a>
                             </header>
                             <article>
@@ -657,7 +658,7 @@
                                     </header>
                                     <div class="create-comment" contenteditable="true" id="create-comment-${article.id}">说点什么吧</div>
                                     <a href="#" class="button" data-article-id="${article.id}" onclick="">发布评论</a>
-                                    <a href="#" class="button forward" data-article-id="${article.id}" onclick="">转发</a>
+                                    <!--a href="#" class="button forward" data-article-id="${article.id}" onclick="">转发</a-->
                                 </article>
                                 <article class="comment">
                                     <header>
@@ -804,6 +805,145 @@
 
 
 </div>
+<div class="modal modal-todo" style="display: none">
+    <div class="modal-wrapper">
+        <div class="modal-bg" onclick="window.todo_modal_entity.hide()"></div>
+        <div  class="modal-box">
+            <header class="todo-ctrl">
+                <button class="todo-add" onclick="window.todo_modal_entity.show_add()"></button>
+                <span class="finish-switch">
+                    <a class="finished">已完成</a>
+                    <a class="unfinished">未完成</a>
+                </span>
+            </header>
+            <div class="todo-list">
+                <div class="todo-box todo-add-box" style="display:none">
+                    <div class="todo-checkbox-wrapper">
+                        <div class="todo-checkbox-box">
+                            <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name0-finished"/>
+                            <label for="is-modal-todo-name0-finished" class="is-todo-finished-label"></label>
+                        </div>
+                    </div>
+                    <input type="text" class="todo-title">
+                    给sabar补魔
+                    </input>
+                    <div class="time-info">
+                        添加时间
+                    </div>
+                    <div class="todo-details">
+                        <p>备注</p>
+                    </div>
+                </div>
+
+                <div class="elem">
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name1-finished"/>
+                                <label for="is-modal-todo-name1-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title"  onclick="window.todo_modal_entity.toggle(this)">
+                            给sabar补魔
+                        </div>
+                        <div class="time-info">
+                            12/29 13:30
+                        </div>
+                        <div class="todo-details" style="display:none">
+                            <p>动画的补魔会和谐成什么样子呢hhhhhhhh</p>
+                        </div>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name2-finished"/>
+                                <label for="is-modal-todo-name2-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            吃撑给食
+                        </div>
+                        <div class="time-info">
+                            12/29 13:30
+                        </div>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name3-finished"/>
+                                <label for="is-modal-todo-name3-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            推出适用于z1的android lolipop
+                        </div>
+                        <div class="time-info">
+                            12/29 13:30
+                        </div>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name4-finished"/>
+                                <label for="is-modal-todo-name3-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            推出适用于z1c的android lolipop
+                        </div>
+                        <div class="time-info">
+                            12/29 13:30
+                        </div>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name5-finished"/>
+                                <label for="is-modal-todo-name3-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            推出适用于z2的android lolipop
+                        </div>
+                        <div class="time-info">
+                            12/29 13:30
+                        </div>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name6-finished"/>
+                                <label for="is-modal-todo-name3-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            推出适用于z2u的android lolipop
+                        </div>
+                        <div class="time-info">
+                            12/29 13:30
+                        </div>
+                    </div>
+                    <div class="todo-box">
+                        <div class="todo-checkbox-wrapper">
+                            <div class="todo-checkbox-box">
+                                <input type="checkbox" class="is-todo-finished" id="is-modal-todo-name7-finished"/>
+                                <label for="is-modal-todo-name3-finished" class="is-todo-finished-label"></label>
+                            </div>
+                        </div>
+                        <div class="todo-title">
+                            推出适用于z3c的android lolipop
+                        </div>
+                        <div class="time-info">
+                            12/29 13:30
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
 <script>
 //    var calendar_control = new calendar();这个全局变量会在下面的控件中引入
     var schedule_control = new schedule_board();
@@ -811,4 +951,6 @@
 </script>
 <script src="../js/lib/mousewheel.min.js"></script>
 <script type="text/javascript" src="../js/Models/Model.js"></script>
+<!--modal-->
+<script src="../js/modal.js"></script>
 </html>

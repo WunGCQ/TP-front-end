@@ -1,20 +1,31 @@
 
-.modal-bg{
+.modal{
     display: table;
     position: fixed;
     width: 100%;
     height: 100%;
     top:0;
     left: 0;
-    background-color: rgba(0,0,0,.6);
+    /*background-color: rgba(0,0,0,.6);*/
     overflow-y: scroll;
     text-align: center;
     z-index: 1024768;
 }
+
+.modal-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(0,0,0,.6);
+}
+
 .modal-wrapper {
     display: table-cell;
     position: relative;
     vertical-align: middle;
+    font-family: "Microsoft YaHei","Microsoft Yahei","微软雅黑","","Courier New","Helvetica Neue", Courier;
 }
 .modal-box {
     display: block;
@@ -343,3 +354,97 @@ article img {
 /*-webkit-border-radius: 6px;*/
 /*}*/
 /*滚动条*/
+
+
+/*todoModal*/
+
+.modal-todo .modal-box{
+    width:700px;
+}
+
+.modal-todo .todo-box{
+    width:inherit;
+    height: inherit;
+    background-color: rgba(255,255,255,.8);
+}
+
+.todo-ctrl{
+    text-align: left;
+    margin-left: 15px;
+    font-size: 15px;
+    width:100%;
+}
+
+.todo-add{
+    background: rgb(105,204,233);
+    border:none;
+    height:30px;
+    width:60px;
+    color: white;
+    font-size: 30px;
+    border-radius: 3px;
+}
+
+.todo-add:before{
+    content: '+';
+    position:relative;
+    top:-2px;
+}
+
+.finish-switch{
+    background: rgba(255,255,255,.6);
+    height:30px;
+    line-height:30px;
+    display:inline-block;
+    vertical-align: top;
+    width:620px;
+    color: white;
+    text-align: right;
+}
+
+.finish-switch > a{
+    text-shadow: rgba(0,0,0,.4) 1px 1px 3px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right:20px;
+}
+
+.finish-switch .unfinished{
+    opacity:.8;
+}
+
+.todo-list .elem{
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
+.todo-list .todo-box{
+    background: rgba(250,250,250,0.8);
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    margin-top:10px;
+}
+
+
+.todo-list .todo-box .todo-title{
+    text-align: left;
+    width:600px;
+}
+
+.todo-list .todo-box input.todo-title{
+    border: none;
+}
+
+.todo-list .todo-box .time-info{
+    text-align: left;
+    font-size:15px;
+    color: #333;
+}
+
+.todo-list .todo-box .todo-details{
+    text-align: left;
+    font-size:18px;
+    margin-left:30px;
+}
