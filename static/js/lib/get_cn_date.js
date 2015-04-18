@@ -96,13 +96,19 @@ function get_lunar_day(solarYear, solarMonth, solarDay) {
     }
 }
 
-var D = new Date();
-var yy = D.getFullYear();
-var mm = D.getMonth() + 1;
-var dd = D.getDate();
-var ww = D.getDay();
-var ss = parseInt(D.getTime() / 1000);
-if (yy < 100) yy = "19" + yy;
-function get_CN_date() {
+// var D = new Date();
+// var yy = D.getFullYear();
+// var mm = D.getMonth() + 1;
+// var dd = D.getDate();
+// var ww = D.getDay();
+// var ss = parseInt(D.getTime() / 1000);
+// if (yy < 100) yy = "19" + yy;
+function get_CN_date(D) {
+    var yy = D.getFullYear();
+    var mm = D.getMonth() + 1;
+    var dd = D.getDate();
+    var ww = D.getDay();
+    var ss = parseInt(D.getTime() / 1000);
+    if (yy < 100) yy = "19" + yy;
     return get_lunar_day(yy, mm, dd);
 }
