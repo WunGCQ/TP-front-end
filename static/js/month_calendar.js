@@ -79,6 +79,7 @@ month_calendar.prototype.set_calendar = function() {
     var year_slash_month = this.month_of_current_calendar_view.split("/");
     var first_day_of_the_month = new Date(year_slash_month[0],year_slash_month[1]-1,1);
     var month = first_day_of_the_month.getMonth()+1;
+    var year = first_day_of_the_month.getFullYear();
     var iterator = first_day_of_the_month;
     var first_week_of_the_month = this.get_the_first_week_of_the_month_sequence();
     var week_number = first_week_of_the_month - 1;
@@ -130,7 +131,7 @@ month_calendar.prototype.set_calendar = function() {
         }
 
     }
-    this.wrapper.getElementsByClassName("month-number")[0].innerHTML = '<span>' +(month.toString())+"月" + '</span>';
+    this.wrapper.getElementsByClassName("month-number")[0].innerHTML = '<span>'+ (year.toString()) +"年" +(month.toString())+"月" + '</span>';
     this.wrapper.getElementsByTagName("tbody")[0].innerHTML = fragment_str;
     var data_year_month = first_day_of_the_month.getFullYear()+"/"+(month);
     this.wrapper.setAttribute("data-year-month",data_year_month);
