@@ -48,7 +48,19 @@
     <!--UI动画-->
     <script src="../js/UI_animate.js"></script>
 
+    <script src="../js/lib/base.js"></script>
+    <script src="../js/lib/juicer.js"></script>
+    <script src="../js/Controllers/AuthorizationController.js"></script>
+    <script src="../js/Controllers/CardsController.js"></script>
+    <script src="../js/Controllers/ScheduleController.js"></script>
+    <script src="../js/Models/ScheduleModel.js"></script>
+    <script src="../js/Models/CardsModel.js"></script>
+    <script src="../js/Models/AuthorizationModel.js"></script>
+    <script src="../js/index.js"></script>
 
+    <style type="text/css">
+        .tpl{display: none;}
+    </style>
 </head>
 <body onload="exam()">
     <header id="header">
@@ -189,93 +201,6 @@
                     </div>
                 </div>
                 <div id="schedule-board-list-box">
-                    <ul style="margin-top: 0px">
-                        <li>
-                            <div class="time-box">
-                                <span>8:00</span>
-                                <i class="time-line-point"></i>
-                            </div>
-                            <div class="schedule-box color1">
-                                <div class="schedule-name-wrapper">
-                                    <div class="schedule-name-box">
-                                        <span>线性代数</span>
-                                    </div>
-                                </div>
-                                <div class="schedule-detail-box">
-                                    <div class="teacher-info">
-                                        <span class="is-boya"></span>
-                                        <span class="fa fa-user"></span>
-                                        <span class="teacher-name">赵可昳</span>
-                                    </div>
-                                    <div class="classroom-info">
-                                        <span class="fa fa-map-marker"></span>
-                                        <span>J3-212 110</span>
-                                    </div>
-                                    <div class="time-info">
-                                        <span class="fa fa-clock-o"></span>
-                                        <span>50</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>
-                        <li>
-                            <div class="time-box">
-                                <span>9:00</span>
-                                <i class="time-line-point"></i>
-                            </div>
-                            <div class="schedule-box color2">
-                                <div class="schedule-name-wrapper">
-                                    <div class="schedule-name-box">
-                                        <span>高级英语读说写（A）</span>
-                                    </div>
-                                </div>
-                                <div class="schedule-detail-box">
-                                    <div class="teacher-info">
-                                        <span class="is-boya"></span>
-                                        <span class="fa fa-user"></span>
-                                        <span class="teacher-name">李英梅</span>
-                                    </div>
-                                    <div class="classroom-info">
-                                        <span class="fa fa-map-marker"></span>
-                                        <span>J1-201 110</span>
-                                    </div>
-                                    <div class="time-info">
-                                        <span class="fa fa-clock-o"></span>
-                                        <span>50</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li id="">
-                            <div class="time-box">
-                                <span>9:00</span>
-                                <i class="time-line-point"></i>
-                            </div>
-                            <div class="schedule-box color3">
-                                <div class="schedule-name-wrapper">
-                                    <div class="schedule-name-box">
-                                        <span>思想政治理论课———纲要</span>
-                                    </div>
-                                </div>
-                                <div class="schedule-detail-box">
-                                    <div class="teacher-info">
-                                        <span class="is-boya"></span>
-                                        <span class="fa fa-user"></span>
-                                        <span class="teacher-name">黄建华</span>
-                                    </div>
-                                    <div class="classroom-info">
-                                        <span class="fa fa-map-marker"></span>
-                                        <span>J3-410 110</span>
-                                    </div>
-                                    <div class="time-info">
-                                        <span class="fa fa-clock-o"></span>
-                                        <span>50</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
                     <a id="add-schedule" href="javascript:schedule_control.show_create_control();">+</a>
 
                 </div>
@@ -306,277 +231,10 @@
 
 
         <div id="water_fall_wrapper">
-            <div class="card-row" id="row-1">
-                <div class="card news-card">
-                    <div class="news-header">
-                        <span class="news-head"></span>
-                        <span>北航新闻</span>
-                        <span>3-10</span>
-                    </div>
-                    <div class="article-title-img-box">
-                        <img src="http://news.buaa.edu.cn/images/content/2015-03/20150309125505176979.jpg" alt="主题图片"/>
-                    </div>
-                    <header>
-                        我校举行2015年学生党员集中学习报告会
-                    </header>
-                    <div class="card-text">
-                        <div class="comment-box">
-                            <span>35</span>
-                            <a href="#">
-                                <span class="fa fa-comment"></span>
-                            </a>
-                        </div>
-
-                        <div class="up-box">
-                            <span>35</span>
-                            <a href="#">
-                                <span class="fa fa-thumbs-up"></span>
-                            </a>
-                        </div>
-
-                    </div>
-                    <table class="comment-table">
-                        <tr>
-                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
-                            <td class="comment-user-name">陈铁昊</td>
-                            <td class="comment-time">2015-2-5</td>
-                        </tr>
-                        <tr>
-                            <td class="comment-content">
-                                发来贺电！
-                            </td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
-                            <td class="comment-user-name">陈铁昊</td>
-                            <td class="comment-time">2015-2-5</td>
-                        </tr>
-                        <tr>
-                            <td class="comment-content">
-                                赞！
-                            </td>
-                        </tr>
-                    </table>
-                    <i class="card-more" title="更多"></i>
-                </div>
-                <div class="card todo-card">
-                    <div class="card-header">
-                        <span class="fa fa-bell"></span>
-                        <span> TO DO</span>
-                    </div>
-                    <div class="add-todo-item-box">
-                        <i class="add-todo-item">+</i>
-                        <a class="todo-more"></a>
-                        <span class="todo-finished-number">6</span>
-                    </div>
-                    <div class="todo-box">
-                        <div class="todo-checkbox-wrapper">
-                            <div class="todo-checkbox-box">
-                                <input type="checkbox" class="is-todo-finished" id="is-todo-name-finished"/>
-                                <label for="is-todo-name-finished" class="is-todo-finished-label"></label>
-                            </div>
-                        </div>
-                        <div class="todo-title">
-                            团队Skype会议
-                        </div>
-                        <div class="time-info">
-                            2015/3/14 上午 9:00
-                        </div>
-                        <a href="#" class="read-todo-link">i</a>
-                    </div>
-                    <div class="todo-box">
-                        <div class="todo-checkbox-wrapper">
-                            <div class="todo-checkbox-box">
-                                <input type="checkbox" class="is-todo-finished" id="is-todo-name2-finished"/>
-                                <label for="is-todo-name2-finished" class="is-todo-finished-label"></label>
-                            </div>
-                        </div>
-                        <div class="todo-title">
-                            还有很多工作要做
-                        </div>
-                        <div class="time-info">
-                            2015/3/15 晚上 21:00
-                        </div>
-                        <a href="#" class="read-todo-link">i</a>
-                    </div>
-                </div>
-                <div class="card news-card">
-                    <div class="news-header">
-                        <span class="news-head"></span>
-                        <span>晨兴</span>
-                        <span>3-11</span>
-                    </div>
-                    <div class="article-title-img-box">
-                        <img src=" http://news.buaa.edu.cn/images/content/2015-03/20150311085744190377.jpg" alt="主题图片"/>
-                    </div>
-                    <header>
-                        3月10日晚7时，北京交响乐团室内乐音乐会在北航晨兴音乐厅举办
-                    </header>
-                    <div class="card-text">
-
-                        <div class="comment-box">
-                            <span>35</span>
-                            <a href="#">
-                                <span class="fa fa-comment"></span>
-                            </a>
-                        </div>
-
-                        <div class="up-box">
-                            <span>35</span>
-                            <a href="#">
-                                <span class="fa fa-thumbs-up"></span>
-                            </a>
-                        </div>
-
-                    </div>
-                    <table class="comment-table">
-                        <tr>
-                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
-                            <td class="comment-user-name">陈铁昊</td>
-                            <td class="comment-time">2015-2-5</td>
-                        </tr>
-                        <tr>
-                            <td class="comment-content">
-                                路过顺手点赞
-                            </td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
-                            <td class="comment-user-name">Angular2</td>
-                            <td class="comment-time">2015-2-5</td>
-                        </tr>
-                        <tr>
-                            <td class="comment-content">
-                                Nice
-                            </td>
-                        </tr>
-                    </table>
-                    <i class="card-more" title="更多"></i>
-                </div>
-            </div>
-            <div class="card-row" id="row-2">
-                <div class="card announcement-card">
-                    <div class="card-header">
-                        <span class="fa fa-calendar"></span>
-                        <span>通知公告</span>
-                    </div>
-                    <section class="announcement-box">
-                        <header class="announcement-header">
-                            大运村取餐处正式运行通知
-                        </header>
-                        <div class="teacher-info">
-                            <!--<span class="is-boya"></span>-->
-                            <span class="fa fa-user"></span>
-                            <span class="teacher-name">后勤服务处</span>
-                        </div>
-                        <div class="classroom-info">
-                            <span class="fa fa-map-marker"></span>
-                            <span>大运村</span>
-                        </div>
-                        <div class="time-info">
-                            <span class="fa fa-clock-o"></span>
-                            <span>3-13</span>
-                        </div>
-                        <a class="add-to-schedule-link" href="#">添加到日程</a>
-                    </section>
-
-                    <section class="announcement-box">
-                        <header class="announcement-header">
-                            关于选拔优秀本科生参加2015年北航暑期国际视野拓展团的通知
-                        </header>
-                        <div class="teacher-info">
-                            <!--<span class="is-boya"></span>-->
-                            <span class="fa fa-user"></span>
-                            <span class="teacher-name">北航教务</span>
-                        </div>
-                        <div class="classroom-info">
-                            <span class="fa fa-map-marker"></span>
-                            <span>北航</span>
-                        </div>
-                        <div class="time-info">
-                            <span class="fa fa-clock-o"></span>
-                            <span>3-12</span>
-                        </div>
-                        <a class="add-to-schedule-link" href="#">添加到日程</a>
-                    </section>
-                </div>
-                <div class="card news-card">
-                    <div class="news-header">
-                        <span class="news-head"></span>
-                        <span>北航科研</span>
-                        <span>3-9</span>
-                    </div>
-                    <div class="article-title-img-box">
-                        <!--<img src="http://wcqblog.github.io/assets/article_images/UI%E5%A4%87%E9%80%89/funky-tunes-css.jpg" alt="主题图片"/>-->
-                    </div>
-                    <header>
-                        我校“智能交通技术创新团队”入选科技部2014年重点领域创新团队
-                    </header>
-                    <div class="card-text">
-
-                        <div class="comment-box">
-                            <span>35</span>
-                            <a href="#">
-                                <span class="fa fa-comment"></span>
-                            </a>
-                        </div>
-
-                        <div class="up-box">
-                            <span>35</span>
-                            <a href="#">
-                                <span class="fa fa-thumbs-up"></span>
-                            </a>
-                        </div>
-
-                    </div>
-                    <table class="comment-table">
-                        <tr>
-                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
-                            <td class="comment-user-name">陈铁昊</td>
-                            <td class="comment-time">2015-2-5</td>
-                        </tr>
-                        <tr>
-                            <td class="comment-content">
-                                发来贺电！
-                            </td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2"><img class="user-head" src="../images/user-head.jpg" alt=""/></td>
-                            <td class="comment-user-name">陈铁昊</td>
-                            <td class="comment-time">2015-2-5</td>
-                        </tr>
-                        <tr>
-                            <td class="comment-content">
-                                赞！
-                            </td>
-                        </tr>
-                    </table>
-                    <i class="card-more" title="更多"></i>
-                </div>
-                <div class="card activity-card">
-                    <div class="card-header">
-                        <div class="activity-card-icon">
-                            !
-                            <i></i>
-                        </div>
-                        <span>近期活动</span>
-                    </div>
-                    <dl class="activity-list">
-                        <dd class="activity-item">
-                            <header class="activity-title">
-                                <a>形神造化——袁武工作室画家水墨人物写生展 - 北航艺术馆 </a>
-                            </header>
-                            <span class="time-info">3.3-3.16</span>
-                        </dd>
-                        <dd class="activity-item">
-                            <header class="activity-title">
-                                <a>小提琴钢琴二重奏 特林科斯 迪莫福耶夫斯基 北航音乐厅</a>
-                            </header>
-                            <span class="time-info">3.19 19:00</span>
-                        </dd>
-                    </dl>
-                </div>
-            </div>
+           <div class="card-row" id="row-1">
+           </div>
+           <div class="card-row" id="row-2">
+           </div>
         </div>
     </div>
     <!--<span class="fa fa-arrow-up" id="scroll-up"></span>-->
@@ -584,7 +242,247 @@
 
 
 
+<div class="tpl" id="schedule_tpl" type="text/template">
+<ul style="margin-top: 0px">
+<!--
+{@helper choose_color}
+    function(index) {
+        return '"schedule-box color'+index%3+1+'"';
+    }
+{@/helper}
+-->
+<!--
+{@helper get_time}
+    function(time) {
+        return new Date(time).toLocaleTimeString(); 
+    }
+{@/helper}
+-->
+<!--
+{@helper get_duration}
+    function(time) {
+        return time/60000; 
+    }
+{@/helper}
+-->
+{@each schedule as item,index}
+<li>
+    <div class="time-box">
+        <span>${item.start_time|get_time}</span>
+        <i class="time-line-point"></i>
+    </div>
+    <div class=${index|choose_color}>
+        <div class="schedule-name-wrapper">
+            <div class="schedule-name-box">
+                <span>${item.title}</span>
+            </div>
+        </div>
+        <div class="schedule-detail-box">
+            <div class="teacher-info">
+                <span class="is-boya"></span>
+                <span class="fa fa-user"></span>
+                <span class="teacher-name">${item.created_by}</span>
+            </div>
+            <div class="classroom-info">
+                <span class="fa fa-map-marker"></span>
+                <span>${item.location}</span>
+            </div>
+            <div class="time-info">
+                <span class="fa fa-clock-o"></span>
+                <span>${item.duration|get_duration}</span>
+            </div>
+        </div>
+    </div>
+</li> 
+{@/each}
+</ul>
+</div>
+<div class="tpl" id="function_tpl" type="text/template">
+<!--
+{@helper getDate}
+function(date){
+    var d = new Date(date);
+    return [d.getFullYear(),d.getMonth()+1,d.getDate()].join("-");
+}
+{@/helper}
+-->
+<!--
+{@helper getLocale}
+function(date){
+    return new Date(date).toLocaleString();
+}
+{@/helper}
+-->
+</div>
+<div  class="tpl" id="article_picture_tpl">
+    <div class="card news-card">
+        <div class="news-header">
+            <span class="news-head"></span>
+            <span>${title}</span>
+            <span>${date|getDate}</span>
+        </div>
+        <div class="article-title-img-box">
+            <img src="${news_image}" alt="主题图片"/>
+        </div>
+        <header href="${link.href}">
+            ${abstract}
+        </header>
+        <div class="card-text">
+            <div class="comment-box">
+                <span>${comments_count}</span>
+                <a href="#">
+                    <span class="fa fa-comment"></span>
+                </a>
+            </div>
 
+            <div class="up-box">
+                <span>${up_count}</span>
+                <a href="#">
+                    <span class="fa fa-thumbs-up"></span>
+                </a>
+            </div>
+
+        </div>
+        <table class="comment-table">
+        {@each hot_comments as item}
+            <tr>
+                <td rowspan="2"><img class="user-head" src="${item.gravatar_link}" alt=""/></td>
+                <td class="comment-user-name">${item.nickname}</td>
+                <td class="comment-time">${item.date|getDate}</td>
+            </tr>
+            <tr>
+                <td class="comment-content">
+                    ${item.content}
+                </td>
+            </tr>
+            {@/each}
+        </table>
+        <i class="card-more" title="更多" href="${comments}"></i>
+    </div>
+</div>
+<div id="activity_tpl" type="text/template" class="tpl">
+    <div class="card activity-card">
+        <div class="card-header">
+            <div class="activity-card-icon">
+                !
+                <i></i>
+            </div>
+            <span>${title}</span>
+        </div>
+        <dl class="activity-list">
+            {@each activity as item}
+                <dd class="activity-item">
+                    <header class="activity-title">
+                        <a>${item.title}</a>
+                    </header>
+                    <span class="time-info">${item.take_at|getLocale}</span>
+                </dd>
+            {@/each}
+        </dl>
+    </div>
+</div>
+<div id="inform_tpl" type="text/template" class="tpl">
+    <div class="card announcement-card">
+        <div class="card-header">
+            <span class="fa fa-calendar"></span>
+            <span>${title}</span>
+        </div>
+        {@each informs as item}
+        <section class="announcement-box">
+            <header class="announcement-header">
+                    ${item.content}
+            </header>
+            <div class="teacher-info">
+                <!--<span class="is-boya"></span>-->
+                <span class="fa fa-user"></span>
+                <span class="teacher-name">${item.people}</span>
+            </div>
+            <div class="classroom-info">
+                <span class="fa fa-map-marker"></span>
+                <span>${item.location}</span>
+            </div>
+            <div class="time-info">
+                <span class="fa fa-clock-o"></span>
+                <span>${item.time|getDate}</span>
+            </div>
+            <a class="add-to-schedule-link" href="#" id="${item.id}">添加到日程</a>
+        </section>
+        {@/each}
+    </div>
+</div>
+<div id="article_tpl" type="text/template" class="tpl">
+    <div class="card news-card">
+        <div class="news-header">
+            <span class="news-head"></span>
+            <span>${title}</span>
+            <span>${date|getDate}</span>
+        </div>
+        <header href="${link.href}">
+            ${abstract}
+        </header>
+        <div class="card-text">
+            <div class="comment-box">
+                <span>${comment_count}</span>
+                <a href="#">
+                    <span class="fa fa-comment"></span>
+                </a>
+            </div>
+
+            <div class="up-box">
+                <span>${up_count}</span>
+                <a href="#">
+                    <span class="fa fa-thumbs-up"></span>
+                </a>
+            </div>
+
+        </div>
+        <table class="comment-table">
+        {@each hot_comments as item}
+            <tr>
+                <td rowspan="2"><img class="user-head" src="${item.gravatar_link}" alt=""/></td>
+                <td class="comment-user-name">${item.nickname}</td>
+                <td class="comment-time">${item.date|getDate}</td>
+            </tr>
+            <tr>
+                <td class="comment-content">
+                    ${item.content}
+                </td>
+            </tr>
+            {@/each}
+        </table>
+        <i class="card-more" title="更多" href="${comments}"></i>
+    </div>
+</div>
+<div id="todo_tpl" type="text/template" class="tpl">
+    <div class="card todo-card">
+        <div class="card-header">
+            <span class="fa fa-bell"></span>
+            <span> ${title}</span>
+        </div>
+        <div class="add-todo-item-box">
+            <i class="add-todo-item">+</i>
+            <a class="todo-more"></a>
+            <span class="todo-finished-number">${finished}</span>
+        </div>
+        {@each todo as item, index}
+        <div class="todo-box">
+            <div class="todo-checkbox-wrapper">
+                <div class="todo-checkbox-box">
+                    <input type="checkbox" class="is-todo-finished" id="is-todo-name-${item.id}-finished"/>
+                    <label for="is-todo-name-${item.id}-finished" class="is-todo-finished-label"></label>
+                </div>
+            </div>
+            <div class="todo-title">
+                ${item.title}
+            </div>
+            <div class="time-info">
+                ${item.time|getLocale}
+            </div>
+            <a href="#" class="read-todo-link" id="read-${item.id}">i</a>
+        </div>
+        {@/each}
+    </div>
+</div>
 </body>
 <div class="modal-bg">
     <div class="modal-wrapper">

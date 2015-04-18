@@ -100,12 +100,14 @@ function calendar() {
 
 
 
-    this.set_day_todo_bar_length = function () {
+    this.set_day_todo_bar_length = function (todo_num) {
         for (var i = 0; i < this.calendar_dom_tree.day_todo_bar.length; i++) {
             //TODO
             //补全ajax
             /*先放一段随机长度~*/
-            var width = Math.floor(56 * Math.random()).toString() + "px";
+            //var width = Math.floor(56 * Math.random()).toString() + "px";
+            //最大todo数15，大于等于15时bar全长。
+            var width = Math.floor(56 * ((todo_num[i]/15.0) > 1 ? 1 : (todo_num[i]/15.0))).toString() + "px";
             //this.calendar_dom_tree.day_todo_bar[i].style.cssText = "width:" + width + ";"
             this.calendar_dom_tree.day_todo_bar[i]._css("width",width);
         }
@@ -115,7 +117,6 @@ function calendar() {
     var calendar_control = this;//供自调用函数使用
 
     this.init = (function () {
-        calendar_control.set_day_todo_bar_length();
         calendar_control.fill_calendar_day_block();
     })();
 
