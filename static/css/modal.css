@@ -9,7 +9,7 @@
     /*background-color: rgba(0,0,0,.6);*/
     overflow-y: scroll;
     text-align: center;
-    z-index: 1024768;
+    z-index: 1000;
 }
 
 .modal-bg{

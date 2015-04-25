@@ -1,0 +1,87 @@
+@font-face {font-family: "iconfont";
+    src: url('../../../../iconfont/iconfont.eot'); /* IE9*/
+    src: url('../../../../iconfont/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../../../../iconfont/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('../../../../iconfont/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('../../../../iconfont/iconfont.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*普通按钮样式及状态*/
+.edui-default .edui-toolbar .edui-button .edui-icon,
+.edui-default .edui-toolbar .edui-menubutton .edui-icon,
+.edui-default .edui-toolbar .edui-splitbutton .edui-icon {
+    height: 24px !important;
+    width: 24px !important;
+    /*background-image: url(../images/icons.png);*/
+    /*background-image: url(../images/icons.gif) \9;*/
+}
+
+.edui-default .edui-icon:before{
+    font-family:"iconfont" !important;
+    display: block;
+    position: relative;
+    height: 24px;
+    width: 24px;
+    text-align: center;
+    line-height: 24px;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    transition: all ease-out .2s;
+    -moz-osx-font-smoothing: grayscale;
+    color: #f2f2f2;
+}
+.edui-default  .edui-state-checked .edui-icon:before{
+    /*transform: scale(1.2);*/
+    color: #fff;
+    background-color: #aaa;
+}
+.edui-default  .edui-state-hover .edui-icon:before{
+    /*font-size: 20px;*/
+    color: #fff;
+}
+
+.edui-default .edui-toolbar .edui-button .edui-button-wrap {
+    padding: 1px;
+    position: relative;
+}
+
+.edui-default .edui-toolbar .edui-button .edui-state-hover .edui-button-wrap {
+    /*background-color: #fff5d4;*/
+    padding: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.edui-default .edui-toolbar .edui-button .edui-state-hover
+
+.edui-default .edui-toolbar .edui-button .edui-state-checked .edui-button-wrap {
+    background:transparent ;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+}
+
+
+.edui-default .edui-toolbar .edui-button .edui-state-active .edui-button-wrap .edui-icon:before{
+    background-color: #ccc;
+    padding: 0;
+    border: 1px solid transparent;
+}
+.edui-default .edui-toolbar .edui-state-disabled .edui-label {
+    color: #ccc;
+}
+.edui-default .edui-toolbar .edui-state-disabled .edui-icon {
+    opacity: 0.3;
+    filter: alpha(opacity = 30);
+}
