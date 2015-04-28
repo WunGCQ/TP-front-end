@@ -118,10 +118,12 @@
 .edui-toolbar .edui-for-link .edui-icon {
     /*background-position: -500px 0;*/
 }
+
 .edui-toolbar .edui-for-link .edui-icon:before {
     content: "\e633";
     font-size: 26px;
 }
+
 .edui-toolbar .edui-for-code .edui-icon {
     /*background-position: -440px -40px;*/
     background-color: transparent;
