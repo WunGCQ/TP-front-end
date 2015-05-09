@@ -1,8 +1,9 @@
 #header {
     display: block;
     position: fixed;
-    z-index: 99999;
+    z-index: 999;
     width: 100%;
+    top: 0;
     height: 55px;
     padding-top: 20px;
     text-align: right;

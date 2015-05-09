@@ -40,8 +40,10 @@
     overflow: hidden;
     background-color: #AFDEEC;
     font-family: "微软雅黑", "Microsoft Yahei", Arial, Helvetica, sans-serif, "宋体";
-    color:#373737;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, .2);
+    /*color:#373737;*/
+    color: #384B51;
+    /*color: rgba(0,0,0,.65);*/
+    box-shadow: 0px 0px 5px  rgba(0, 0, 0, .2);
     cursor: default;
 }
 .publish-time {

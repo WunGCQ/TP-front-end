@@ -2,13 +2,17 @@ html {
     background: transparent;
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: auto;
+    background: -moz-linear-gradient(left, #ace, #dfdddd);
 }
 body {
-    position: absolute;
+    position: relative;
     width: 100%;
-    height: 100%;
-    background: url(../images/bg_new.jpg) repeat;
+    height: auto;
+    /*background: url(../images/bg_new.jpg) repeat;*/
+    background: -moz-linear-gradient(45deg, #ace, #dfdddd);
+    background: -webkit-gradient(linear, 0 0, 100% 100%, from(#ace),to(#dfdddd));
+    background: -o-linear-gradient(30deg, #ace, #dfdddd);
     font-family: "Microsoft YaHei","Microsoft Yahei","微软雅黑",Arial,Helvetica Neue, Courier;
     /*background: url('../images/index_bg.jpg') 50% 50% /cover repeat-x;*/
     /*background-image: url('../images/index_bg.jpg');*/

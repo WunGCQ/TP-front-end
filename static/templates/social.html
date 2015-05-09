@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>航线</title>
+    <script src="../js/lib/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css"/>
+    <link rel="stylesheet" href="../css/header.css"/>
+    <link rel="stylesheet" href="../css/social.css"/>
+    <link rel="stylesheet" href="../css/modal.css"/>
+    <link rel="stylesheet" href="../css/editor.css"/>
+    <link rel="stylesheet" href="../font-awesome-4.2.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../iconfont/iconfont.css"/>
+</head>
+<body onResize="set_logo_box();">
+<header id="header">
+    <a href="/" id="logo-box">
+        <img src="../images/home.jpg" alt=""/>
+    </a>
+    <!--有新消息时加 bar-have-message 类 -->
+    <a id="bar-search" href="javascript:alert('!!!');">
+        <span class="fa fa-search"></span>
+    </a>
+    <a id="bar-service" class="bar-menu" href="services/">
+        <span class="fa fa-plus-square"></span>
+        <span>服务</span>
+    </a>
+
+    <a id="bar-index" class="bar-menu" href="index/">
+        <span class="fa fa-th-large"></span>
+        <span>主页</span>
+    </a>
+    <a id="bar-campus" class="bar-menu" href="campus/">
+        <span class="fa fa-bars"></span>
+        <span>校园</span>
+    </a>
+    <a id="bar-message" class="bar-menu bar-have-message" href="messages/" title="消息">
+        <span class="fa fa-bell"></span>
+    </a>
+
+</header>
+
+<div class="container">
+
+    <div class="right-user-stream">
+        <section class="stream-item pic-txt">
+            <div class="user-head"></div>
+            <header class="item-header">
+                <span class="user-name">旅行风景</span>
+                <i class="remove fa fa-trash" title="移除"></i>
+            </header>
+            <article class="content">
+                <div class="txt">
+                    这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字
+                    这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字
+                    这里是文字这里是文字这里是文字这里是文字这里是文字这里是文字
+                </div>
+                <!--<div class="album">-->
+                    <div class="image-wrapper">
+                        <div class="img" style="background-image:url(../images/huai_bg_01.jpg) "></div>
+                        <div class="img" style="background-image:url(../images/bgcollection01.jpg) "></div>
+                        <div class="img" style="background-image:url(../images/huai_bg_01.jpg) "></div>
+                        <div class="img" style="background-image:url(../images/bgcollection01.jpg) "></div>
+                        <div class="img" style="background-image:url(../images/huai_bg_01.jpg) "></div>
+                        <div class="img" style="background-image:url(../images/bgcollection01.jpg) "></div>
+                    </div>
+                <!--</div>-->
+
+            </article>
+            <div class="item-info">
+                <time class="time">
+                    2015年5月10日
+                </time>
+                <span class="album-info">
+                    8张照片 &nbsp;&nbsp;&nbsp; 摄影 旅行
+                </span>
+
+                <div class="actions">
+                    <div class="zan">
+                        <i class="iconfont icon-zan"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="heart">
+                        <i class="iconfont icon-heart"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="zan">
+                        <i class="fa fa-comment"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="forward">
+                       | 转
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stream-item pic-article">
+            <div class="user-head"></div>
+            <header class="item-header">
+                <span class="user-name">旅行风景</span>
+                <i class="remove fa fa-trash" title="移除"></i>
+            </header>
+            <article class="content">
+                <div class="img" style="background-image: url(../images/banner1.png)"></div>
+                <div class="article-abstract">
+                    <section class="section">
+                        <p>
+                            当溢出发生时，overflow属性约定了容器盒子是否剪裁掉超出其内边界的部分，并且决定是否出现滚动条来访问被剪裁掉的内容。它会影响到元素所有内容的剪裁，但有个例外情况，即上面第6条所提到的：元素的子孙元素的包含块（Containing blocks）是整个视窗（viewport）或是该元素的祖先元素，内容将不会被剪裁。包含块是什么呢？简单的说，就是可以决定一个元素位置和大小的块。通常一个元素的包含块由离它最近的块级祖先元素的内容边界决定。但当元素被设置成绝对定位时，包含块由最近的position不是static的祖先元素决定。
+                        </p>
+                    </section>
+
+                    <a href="" class="read-whole-article">阅读全文</a>
+                </div>
+
+
+            </article>
+            <div class="item-info">
+                <time class="time">
+                    2015年5月10日
+                </time>
+
+                <div class="actions">
+                    <div class="zan">
+                        <i class="iconfont icon-zan"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="heart">
+                        <i class="iconfont icon-heart"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="zan">
+                        <i class="fa fa-comment"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="forward">
+                        | 转
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stream-item voting">
+            <div class="user-head"></div>
+            <header class="item-header">
+                <span class="user-name">旅行风景</span>
+                <i class="remove fa fa-trash" title="移除"></i>
+            </header>
+            <article class="content">
+                <header class="vote-name">
+                    这里是一个题目，你需要对他进行投票
+                </header>
+                <div class="result-wrapper">
+                    <div class="res">
+                        <div class="option">
+                            <input type="radio" class="option-input" id="vote_option_0" name="vote"/>
+                            <label for="vote_option_0" class="label"></label>
+                            <p class="txt">选项1</p>
+                        </div>
+                        <div class="bar"></div>
+                        <div class="numbers"></div>
+                    </div>
+                    <div class="res">
+                        <div class="option">
+                            <input type="radio" class="option-input" id="vote_option_1" name="vote" checked="checked" />
+                            <label for="vote_option_1" class="label"></label>
+                            <p class="txt">选项1</p>
+                        </div>
+                        <div class="bar"></div>
+                        <div class="numbers"></div>
+                    </div>
+                    <div class="res">
+                        <div class="option">
+                            <input type="radio" class="option-input" id="vote_option_2" name="vote"/>
+                            <label for="vote_option_2" class="label"></label>
+                            <p class="txt">这事儿我觉得可以但是我并不想这么干</p>
+                        </div>
+                        <div class="bar"></div>
+                        <div class="numbers"></div>
+                    </div>
+                    <div class="res">
+                        <div class="option">
+                            <input type="radio" class="option-input" id="vote_option_3" name="vote"/>
+                            <label for="vote_option_3" class="label"></label>
+                            <p class="txt">这事儿我觉得可以但是我并不想这么干</p>
+                        </div>
+                        <div class="bar"></div>
+                        <div class="numbers"></div>
+                    </div>
+                </div>
+            </article>
+            <div class="item-info">
+                <time class="time">
+                    2015年5月10日
+                </time>
+
+                <div class="actions">
+                    <div class="zan">
+                        <i class="iconfont icon-zan"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="heart">
+                        <i class="iconfont icon-heart"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="zan">
+                        <i class="fa fa-comment"></i>
+                        <span>20</span>
+                    </div>
+                    <div class="forward">
+                        | 转
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="create-wrapper">
+    <div class="icon iconfont icon-icon"></div>
+    <div class="icon iconfont icon-wenzhang"></div>
+    <div class="icon iconfont icon-tupian"></div>
+    <div class="icon iconfont icon-xuanzhong"></div>
+    <div class="icon iconfont icon-renwu"></div>
+    <div class="icon iconfont icon-bianji1" id="create-more"></div>
+</div>
+
+<div class="left" id="user-left">
+    <div class="left-nav-wrapper">
+        <div class="left-nav">
+            <a class="item active" href="">航线</a>
+            <a class="item" href="">热门</a>
+            <a class="item" href="">活动</a>
+            <a class="item" href="">广场</a>
+        </div>
+        <section class="user-info">
+            <p class="user-intro">
+                这里是用户的个人简介部分
+            </p>
+            <header class="user-name">沉贴好</header>
+            <span class="numbers iconfont icon-eye-small">2333</span>
+            <span class="numbers iconfont icon-appreciate">23333</span>
+            <span class="numbers iconfont icon-heart">2333</span>
+
+        </section>
+    </div>
+</div>
+</body>
+<script>
+    function set_logo_box(){
+        var logo = document.getElementById("logo-box");
+        var _left = document.getElementById("user-left");
+//            console.log(window.innerWidth);
+        if(window.innerWidth<=1000) {
+            logo.style["left"] = "0px";
+            _left.style["left"] = "0px";
+        }else{
+            $(logo).css({
+                'left':'calc(50% - 500px)'
+            });
+            $(_left).css({
+                'left':'calc(50vw - 500px)'
+            });
+
+        }
+    }
+    set_logo_box();
+    window.addEventListener("resize",set_logo_box);
+</script>
+<script src="../js/addArticle.js"></script>
+</html>

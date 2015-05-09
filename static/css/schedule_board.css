@@ -5,7 +5,8 @@
     margin-top: 5px;
     width: 100%;
     /*height: 580px;*/
-    height: calc(100% - 100px);
+    height: auto;
+    /*height: calc(100% - 100px);*/
     min-height: 580px;
     z-index: 5;
     color: #494949;
@@ -142,6 +143,9 @@
     display: block;
     width: 100%;
     height: 55px;
+}
+#schedule-board-list-box li:last-child {
+    margin-bottom: 200px;
 }
 #schedule-board-list-box .time-box {
     display: inline-block;
