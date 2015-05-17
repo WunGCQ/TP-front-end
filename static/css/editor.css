@@ -39,11 +39,12 @@
 
 }
 
-.remove-tag:hover
+.remove-tag:hover,
 .remove-tag {
     display: inline-block;
-    width: 10px;
+    width: 14px;
     height: 20px;
+    line-height: 20px;
     cursor: pointer;
 }
 .remove-tag:before {
@@ -61,7 +62,19 @@
 .remove-tag:hover:before,
 .remove-tag:active:before{
     font-family: "iconfont" !important;
-    content: "\e635";
+    content: "\e638";
+    display: block;
+    position: absolute;
+    font-size: 6px;
+    color: #fff;
+    width: 13px;
+    height: 13px;
+    text-align: center;
+    line-height: 13px;
+    border-radius: 13px;
+    background-color: #f44f58;
+    margin-left: -6px;
+    margin-top: 10px;
 }
 .editor-tags.new-tag {
     background: #666;
@@ -70,9 +83,11 @@
 .editor-tags.new-tag:before{
     content: "●";
     color: #FFF;
-
-    margin-right: 5px;
-    margin-left: -4px;
+    width: 14px;
+    height: 14px;
+    margin: auto;
+    /*margin-right: 5px;*/
+    /*margin-left: -4px;*/
 }
 .editor-submit-box {
     height: 40px;

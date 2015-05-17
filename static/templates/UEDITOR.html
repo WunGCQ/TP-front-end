@@ -19,7 +19,7 @@
         <div class="modal-bg"></div>
         <div class="modal-box" >
             <div class="editor-box">
-                <iframe style="width: 100%;height:100%;overflow-x:hidden;overflow-y:auto;text-align: center;background-color: transparent;border: none;" src="../ueditor1_4_3-src/edi.html">
+                <iframe id="long-article-editor" style="width: 100%;height:100%;overflow-x:hidden;overflow-y:auto;text-align: center;background-color: transparent;border: none;" src="../ueditor1_4_3-src/edi.html">
                 </iframe>
             </div>
             <div class="editor-tag-box">
@@ -39,11 +39,11 @@
                         所有人可见
                     </label>
                     <label for="article-visibility-friends">
-                        <input type="radio" id="article-visibility-friends" name="visibility" value="0"/>
+                        <input type="radio" id="article-visibility-friends" checked="checked" name="visibility" value="0"/>
                         仅与我互相关注的人可见
                     </label>
                 </div>
-                <a class="editor-submit-button">发布</a>
+                <a class="editor-submit-button" id="editor-submit-button">发布</a>
             </div>
 
         </div>
